@@ -1,0 +1,13 @@
+{
+	"n_targets": 202897,
+	"n_bootstraps": 0,
+	"n_processed": 25000000,
+	"n_pseudoaligned": 22459253,
+	"n_unique": 4861584,
+	"p_pseudoaligned": 89.8,
+	"p_unique": 19.4,
+	"kallisto_version": "0.50.0",
+	"index_version": 12,
+	"start_time": "Wed Nov 15 09:36:42 2023",
+	"call": "kallisto quant -i hg38.idx -o tumour2 --single -t 4 -l 200 -s 20 tumour_2.fastq.gz"
+}

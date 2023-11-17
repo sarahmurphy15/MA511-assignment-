@@ -1,0 +1,2 @@
+"0","write.table(counts, ""normalised_counts.txt"", sep=""\t"", quote = F)"
+"0","write.table(log2_counts, ""log2_counts.txt"", sep=""\t"", quote = F)"

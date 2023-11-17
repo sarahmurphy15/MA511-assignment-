@@ -1,0 +1,1649 @@
+1697135611673:if (!require("BiocManager", quietly = TRUE))
+1697135611674:install.packages("BiocManager")
+1697135615274:BiocManager::install(version = "3.17")
+1697135647599:BiocManager::install(c("plyr"))
+1697135666149:BiocManager::install(c("biomaRt"))
+1697135894393:BiocManager::install(c("XVector"))
+1697136057516:BiocManager::install(c("XVector"))
+1697136086289:BiocManager::install(c("biomaRt"))
+1697136297063:BiocManager::install(c("tximport"))
+1697136313348:BiocManager::install(c("rhdf5"))
+1697136917023:BiocManager::install(c("gplots", "DESeq2", "igraph", "RColorBrewer"))
+1697137146632:BiocManager::install(c("gplots", "DESeq2", "igraph", "RColorBrewer"))
+1697137161604:BiocManager::install(c("limma", "WCGNA", "IHW", "PCAtools"))
+1697137936761:BiocManager::install(c("WGCNA"))
+1697138273327:BiocManager::install(c("tidyverse", "org.Hs.eg.db", "devtools", "pheatmap"))
+1697138451973:BiocManager::install(c("GOplot", "pvclust"))
+1697138497915:BiocManager::install(c("fgsea"))
+1697138577331:.libPaths()
+1697138583142:library()
+1697138614386:library(AnnotationDbi)
+1697138630177:library(plyr)
+1697138630305:library(biomaRt)
+1697138631673:library(tximport)
+1697138631688:library(rhdf5)
+1697138631761:library(gplots)
+1697138631806:library(DESeq2)
+1697138636012:library(igraph)
+1697138665203:library(RColorBrewer)
+1697138665239:library(limma)
+1697138665487:library(WGCNA)
+1697138666061:library(IHW)
+1697138666247:library(PCAtools)
+1697138667494:library(tidyverse)
+1697138668312:library(org.Hs.eg.db)
+1697138668517:library(devtools)
+1697138669201:library(pheatmap)
+1697138669225:library(fgsea)
+1697138669265:library(GOplot)
+1697138669375:library(pvclust)
+1697138732998:BiocManager::install(c("igraph"))
+1697138746586:library(igraph)
+1697138797050:library(igraph)
+1697139448644:library()
+1697179919081:knitr::opts_chunk$set(echo = TRUE)
+1697179919315:summary(cars)
+1697179919339:plot(pressure)
+1697179994539:knitr::opts_chunk$set(echo = TRUE)
+1697179994546:summary(cars)
+1697179994556:plot(pressure)
+1697180010137:pressure
+1697180016306:plot(pressure)
+1697180198355:samples <- read.csv("/home/rstudio/rnaseq_data/samples.csv", header=T, row.names = "sample", stringsAsFactors = T)
+1697180231649:samples <- read.csv("/home/rstudio/rnaseq_data/quant/samples.csv", header=T, row.names = "sample", stringsAsFactors = T)
+1697180231657:samples
+1697180539835:BiocManager::install(c("apeglm"))
+1697180647172:library(dplyr)
+1697180647178:library(biomaRt)
+1697180647179:library(tximport)
+1697180647180:library(rhdf5)
+1697180647181:library(gplots)
+1697180647183:library(org.Hs.eg.db)
+1697180647185:library(DESeq2)
+1697180647186:library(DT)
+1697180647225:library(apeglm)
+1697180647707:library(RColorBrewer)
+1697180647708:library(IHW)
+1697180647709:library(PCAtools)
+1697180647709:library(pheatmap)
+1697180647710:library(clusterProfiler)
+1697180670742:BiocManager::install(c("clusterProfiler"))
+1697180851510:library(dplyr)
+1697180851516:library(biomaRt)
+1697180851517:library(tximport)
+1697180851518:library(rhdf5)
+1697180851520:library(gplots)
+1697180851521:library(org.Hs.eg.db)
+1697180851522:library(DESeq2)
+1697180851523:library(DT)
+1697180851524:library(apeglm)
+1697180851525:library(RColorBrewer)
+1697180851526:library(IHW)
+1697180851527:library(PCAtools)
+1697180851528:library(pheatmap)
+1697180851529:library(clusterProfiler)
+1697180852387:library(EnhancedVolcano)
+1697180863723:BiocManager::install(c("EnhancedVolcano"))
+1697180878237:library(dplyr)
+1697180878243:library(biomaRt)
+1697180878244:library(tximport)
+1697180878245:library(rhdf5)
+1697180878247:library(gplots)
+1697180878248:library(org.Hs.eg.db)
+1697180878249:library(DESeq2)
+1697180878251:library(DT)
+1697180878252:library(apeglm)
+1697180878253:library(RColorBrewer)
+1697180878255:library(IHW)
+1697180878256:library(PCAtools)
+1697180878257:library(pheatmap)
+1697180878258:library(clusterProfiler)
+1697180878259:library(EnhancedVolcano)
+1697180878295:library(ComplexHeatmap)
+1697180889009:BiocManager::install(c("ComplexHeatmap"))
+1697180921718:library(dplyr)
+1697180921724:library(biomaRt)
+1697180921725:library(tximport)
+1697180921727:library(rhdf5)
+1697180921728:library(gplots)
+1697180921729:library(org.Hs.eg.db)
+1697180921730:library(DESeq2)
+1697180921731:library(DT)
+1697180921732:library(apeglm)
+1697180921733:library(RColorBrewer)
+1697180921734:library(IHW)
+1697180921735:library(PCAtools)
+1697180921736:library(pheatmap)
+1697180921737:library(clusterProfiler)
+1697180921738:library(EnhancedVolcano)
+1697180921739:library(ComplexHeatmap)
+1697180922124:library(circlize)
+1697180922146:library(fgsea)
+1697180922147:library(tidyverse)
+1697180922148:library(ggpubr)
+1697180930217:samples <- read.csv("/home/rstudio/rnaseq_data/quant/samples.csv", header=T, row.names = "sample", stringsAsFactors = T)
+1697180930223:samples
+1697180961907:factor_cols <- sapply(samples, is.factor)
+1697180961913:if(all(factor_cols) == TRUE){
+1697180961914:print("All columns in metadata are factors and suitable for analysis.")
+1697180961915:}else{
+1697180961916:numeric_cols <- sapply(samples, is.numeric)
+1697180961916:names <- colnames(samples)[numeric_cols]
+1697180961917:print(paste0("Column(s) ", names, " is numeric. Converting to factor."))
+1697180961918:samples[numeric_cols] <- as.data.frame(lapply(samples[numeric_cols], factor))
+1697180961919:final_check <- sapply(samples, is.factor)
+1697180961920:if(all(final_check) == TRUE){
+1697180961920:print("All columns in metadata are factors and suitable for analysis.")
+1697180961921:}else{
+1697180961922:print("Error in converting to factors. Check input metadata file.")
+1697180961923:}
+1697180961925:}
+1697180969407:samples
+1697181332558:dir <- ("/home/rstudio/rnaseq/quant")
+1697181332564:files <- file.path(dir, rownames(samples), "abundance.h5")
+1697181332566:names(files) <- paste0(rownames(samples))
+1697181332567:files
+1697181396496:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1697181403214:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1697181420027:head(tx2gene)
+1697181427212:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1697181434511:files
+1697181533435:filesp1[]
+1697181536923:files[1]
+1697181547652:txi <- tximport(files[1], type = "kallisto", tx2gene = tx2gene)
+1697181555073:dir()
+1697181561533:ls
+1697181563323:ls()
+1697181622772:dir <- ("/home/rstudio/rnaseq_data/quant")
+1697181622779:files <- file.path(dir, rownames(samples), "abundance.h5")
+1697181622782:names(files) <- paste0(rownames(samples))
+1697181622787:files
+1697181634019:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1697181643733:head(txi$abundance)
+1697181707903:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1697181719555:dds$condition <- relevel(dds$condition, ref = "control")
+1697181719686:dds <- DESeq(dds)
+1697181734093:resultsNames(dds)
+1697182030429:samples$replicate <- factor(samples$replicate)
+1697182036844:factor_cols <- sapply(samples, is.factor)
+1697182036850:factor_cols
+1697182062676:dir <- ("/home/rstudio/rnaseq_data/quant")
+1697182062683:files <- file.path(quant_dir, rownames(samples), "abundance.h5")
+1697182159712:quant_dir <- "/home/rstudio/rnaseq_data/quant"
+1697182159719:list.files(quant_dir)
+1697182164357:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1697182164363:samples
+1697182176912:samples$replicate <- factor(samples$replicate)
+1697182176921:# check its ok:
+1697182176923:factor_cols <- sapply(samples, is.factor)
+1697182176926:factor_cols
+1697182176930:```
+1697182187935:samples
+1697182197388:samples$replicate <- factor(samples$replicate)
+1697182204296:factor_cols <- sapply(samples, is.factor)
+1697182213350:factor_cols
+1697182225512:files <- file.path(quant_dir, rownames(samples), "abundance.h5")
+1697182225518:names(files) <- paste0(rownames(samples))
+1697182225519:files
+1697182247960:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1697182258807:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1697182275363:head(tx2gene)
+1697182277310:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1697182285088:head(txi$abundance)
+1697182289830:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1697182333913:dds$condition <- relevel(dds$condition, ref = "control")
+1697182333973:dds <- DESeq(dds)
+1697182347453:resultsNames(dds)
+1697182463857:counts <- counts(dds, normalized=TRUE)
+1697182493544:log2 <- assay(normTransform(dds))
+1697182493681:rld <- assay(rlog(dds))
+1697182518433:log2_counts <- assay(normTransform(dds))
+1697182518718:rld_conts <- assay(rlog(dds))
+1697182535717:log2_counts <- assay(normTransform(dds))
+1697182535870:rld_counts <- assay(rlog(dds))
+1697182695692:dir.create("/home/rstudio/rnaseq_data/counts")
+1697182695698:write.table(counts, "/home/rstudio/rnaseq_data/normalised_counts.txt", sep="\t", quote = F)
+1697182856372:library(vsn)
+1697182881730:BiocManager::install("vsn")
+1697182917260:BiocManager::install("hexbin")
+1697182926704:library(vsn)
+1697182926999:library(hexbin)
+1697182942935:log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+1697182943073:log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+1697182970537:rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+1697182970718:rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+1697183106425:## Calculate distance between samples
+1697183106428:sampleDists <- dist(t(rld))
+1697183106450:## Place distances in matrix
+1697183106451:sampleDistMatrix <- as.matrix(sampleDists)
+1697183106455:## Optional, remove colnames
+1697183106456:colnames(sampleDistMatrix) <- NULL
+1697183106458:## create annotation dataframe
+1697183106459:ann <- data.frame(Condition = samples$condition)
+1697183106461:col <- c("blue", "forestgreen", "red1")
+1697183106461:names(col) <- c("melanoma", "lung", "control")
+1697183106462:ann_col <- list(Condition = col)
+1697183106464:## match annotation rownames to distance mat
+1697183106465:rownames(ann) <- rownames(sampleDistMatrix)
+1697183106467:pheatmap(mat=sampleDistMatrix,
+1697183106468:## pass distance metric calculated to heatmap
+1697183106468:clustering_distance_rows=sampleDists,
+1697183106469:clustering_distance_cols=sampleDists,
+1697183106469:## pass annotation dataframe
+1697183106470:annotation_col = ann,
+1697183106471:## add colors
+1697183106471:annotation_colors = ann_col,
+1697183106472:## heatmap colours
+1697183106472:col=hcl.colors(100,"GnBu",rev=T))
+1697183237651:p <- pca(rld, metadata = samples)
+1697183237869:biplot(p,
+1697183237870:colby = 'condition',
+1697183237870:colkey = c('melanoma'='royalblue', 'control'='red1', 'lung'='forestgreen'),
+1697183237871:hline = 0,
+1697183237872:vline = 0,
+1697183237872:legendPosition = 'right',
+1697183237873:legendLabSize = 12,
+1697183237874:legendIconSize = 8.0,
+1697183237874:title = 'PCA bi-plot',
+1697183237875:subtitle = 'PC1 versus PC2')
+1697183307671:sampleDists <- dist(t(rld_counts))
+1697183307712:## Place distances in matrix
+1697183307713:sampleDistMatrix <- as.matrix(sampleDists)
+1697183307716:## Optional, remove colnames
+1697183307717:colnames(sampleDistMatrix) <- NULL
+1697183307719:## create annotation dataframe
+1697183307720:ann <- data.frame(Condition = samples$condition)
+1697183307726:col <- c("blue", "forestgreen", "red1")
+1697183307727:names(col) <- c("melanoma", "lung", "control")
+1697183307727:ann_col <- list(Condition = col)
+1697183307729:## match annotation rownames to distance mat
+1697183307730:rownames(ann) <- rownames(sampleDistMatrix)
+1697183307732:pheatmap(mat=sampleDistMatrix,
+1697183307732:## pass distance metric calculated to heatmap
+1697183307733:clustering_distance_rows=sampleDists,
+1697183307734:clustering_distance_cols=sampleDists,
+1697183307734:## pass annotation dataframe
+1697183307735:annotation_col = ann,
+1697183307736:## add colors
+1697183307736:annotation_colors = ann_col,
+1697183307737:## heatmap colours
+1697183307737:col=hcl.colors(100,"GnBu",rev=T))
+1697183332172:p <- pca(rld_counts, metadata = samples)
+1697183332324:biplot(p,
+1697183332325:colby = 'condition',
+1697183332326:colkey = c('melanoma'='royalblue', 'control'='red1', 'lung'='forestgreen'),
+1697183332326:hline = 0,
+1697183332327:vline = 0,
+1697183332328:legendPosition = 'right',
+1697183332329:legendLabSize = 12,
+1697183332329:legendIconSize = 8.0,
+1697183332330:title = 'PCA bi-plot',
+1697183332331:subtitle = 'PC1 versus PC2')
+1697183431031:lung_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "lung", "control"))
+1697183440523:res1 <- lfcShrink(dds=dds, res=lung_v_ctrl, coef=4, type="apeglm")
+1697183472736:summary(res1)
+1697183487027:melanoma_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "melanoma", "control"))
+1697183493059:res2 <- lfcShrink(dds=dds, res=melanoma_v_ctrl, coef=5, type="apeglm")
+1697183524410:summary(res2)
+1697183554764:dds$condition <- relevel(dds$condition, ref = "melanoma")
+1697183554816:dds <- DESeq(dds)
+1697183568200:# double check it worked
+1697183568201:resultsNames(dds)
+1697183571295:lung_v_melanoma <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "lung", "melanoma"))
+1697183580444:res3 <- lfcShrink(dds=dds, res=lung_v_melanoma, coef=5, type="apeglm")
+1697183613701:summary(res3)
+1697183680871:get_upregulated <- function(df){
+1697183680880:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1697183680882:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1697183680882:return(results)
+1697183680883:}
+1697183810017:get_upregulated <- function(df){
+1697183810024:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1697183810026:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1697183810030:return(results)
+1697183810033:}
+1697183814126:get_downregulated <- function(df){
+1697183814132:key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+1697183814133:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1697183814134:return(results)
+1697183814135:}
+1697183822327:annotate_de_genes <- function(df){
+1697183822334:df$hgnc_symbol <- rownames(df)
+1697183822335:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1697183822336:info <- getBM(attributes=c("hgnc_symbol",
+1697183822337:"ensembl_gene_id_version",
+1697183822338:"chromosome_name",
+1697183822339:"start_position",
+1697183822340:"end_position",
+1697183822341:"strand",
+1697183822341:"entrezgene_description"),
+1697183822342:filters = c("hgnc_symbol"),
+1697183822343:values = df$hgnc_symbol,
+1697183822343:mart = mart,
+1697183822344:useCache=FALSE)
+1697183822346:tmp <- merge(df, info, by="hgnc_symbol")
+1697183822346:tmp$strand <- gsub("-1", "-", tmp$strand)
+1697183822347:tmp$strand <- gsub("1", "+", tmp$strand)
+1697183822349:tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+1697183822349:tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+1697183822351:output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+1697183822352:tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+1697183822352:colnames(tmp) <- output_col
+1697183822354:if(min(tmp$Log2FC) > 0){
+1697183822355:tmp <- tmp[order(-tmp$Log2FC),]
+1697183822356:}else{
+1697183822356:tmp <- tmp[order(tmp$Log2FC),]
+1697183822357:}
+1697183822358:return(tmp)
+1697183822359:}
+1697183831490:de_up <- get_upregulated(as.data.frame(res1))
+1697183831540:de_down <- get_downregulated(as.data.frame(res1))
+1697183837219:head(de_up)
+1697183847113:upregulated_genes <- annotate_de_genes(de_up)
+1697183850097:downregulated_genes <- annotate_de_genes(de_down)
+1697183858577:head(upregulated_genes)
+1697183983471:## remove NA values from results
+1697183983478:res1 <- na.omit(res1)
+1697183983582:## calculate min/max axis values for plot (optional)
+1697183983582:min_width <- min(res1$log2FoldChange)
+1697183983585:max_width <- max(res1$log2FoldChange)
+1697183983587:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697183983613:## Grab top 10 up-reg genes for plot
+1697183983614:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697183983644:up <- up[order(-up$log2FoldChange),]
+1697183983654:up_list <- head(rownames(up), n=10L)
+1697183983655:## Grab top 10 down-reg genes for plot
+1697183983656:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697183983666:down <- down[order(down$log2FoldChange),]
+1697183983671:down_list <- head(rownames(down), n=10L)
+1697183983672:## place top 20 DE genes in vector (optinal...)
+1697183983673:plot_top_20 <- c(up_list, down_list)
+1697183983674:EnhancedVolcano(res1,
+1697183983674:lab=rownames(res1),
+1697183983675:x="log2FoldChange",
+1697183983675:y="pvalue",
+1697183983675:selectLab=plot_top_20,
+1697183983676:drawConnectors=TRUE,
+1697183983676:legendPosition = "none",
+1697183983677:FCcutoff=1.0,
+1697183983677:pCutoff=0.05,
+1697183983678:title="Volcano Plot",
+1697183983678:subtitle="Lung vs. Control",
+1697183983679:caption = paste0('Total Genes = ', nrow(res1)),
+1697183983679:xlim=c(min_width, max_width),
+1697183983680:ylim=c(0, max_height))
+1697184064490:res1 <- na.omit(lung_v_ctrl)
+1697184064515:min_width <- min(res1$log2FoldChange)
+1697184064518:max_width <- max(res1$log2FoldChange)
+1697184064521:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697184064533:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697184064543:up <- up[order(-up$log2FoldChange),]
+1697184064549:up_list <- head(rownames(up), n=10L)
+1697184064550:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697184064560:down <- down[order(down$log2FoldChange),]
+1697184064564:down_list <- head(rownames(down), n=10L)
+1697184064565:plot_top_20 <- c(up_list, down_list)
+1697184064566:EnhancedVolcano(res1,
+1697184064567:lab=rownames(res1),
+1697184064567:x="log2FoldChange",
+1697184064568:y="pvalue",
+1697184064568:selectLab=plot_top_20,
+1697184064569:drawConnectors=TRUE,
+1697184064569:FCcutoff=1.0,
+1697184064570:pCutoff=0.05,
+1697184064570:title="Volcano Plot",
+1697184064571:subtitle="Lung vs. Control",
+1697184064571:legendVisible=F,
+1697184064572:caption = paste0('Total Genes = ', nrow(res1)))
+1697184129660:res1 <- na.omit(lung_v_ctrl)
+1697184129687:min_width <- min(res1$log2FoldChange)
+1697184129690:max_width <- max(res1$log2FoldChange)
+1697184129694:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697184129706:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697184129715:up <- up[order(-up$log2FoldChange),]
+1697184129718:up_list <- head(rownames(up), n=10L)
+1697184129719:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697184129728:down <- down[order(down$log2FoldChange),]
+1697184129733:down_list <- head(rownames(down), n=10L)
+1697184129734:plot_top_20 <- c(up_list, down_list)
+1697184129734:EnhancedVolcano(res1,
+1697184129735:lab=rownames(res1),
+1697184129735:x="log2FoldChange",
+1697184129735:y="pvalue",
+1697184129736:selectLab=plot_top_20,
+1697184129736:drawConnectors=TRUE,
+1697184129737:FCcutoff=1.0,
+1697184129737:pCutoff=0.05,
+1697184129738:title="Volcano Plot",
+1697184129738:subtitle="Lung vs. Control",
+1697184129739:caption = paste0('Total Genes = ', nrow(res1)))
+1697184159162:res1 <- na.omit(lung_v_ctrl)
+1697184159190:min_width <- min(res1$log2FoldChange)
+1697184159192:max_width <- max(res1$log2FoldChange)
+1697184159195:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697184159205:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697184159213:up <- up[order(-up$log2FoldChange),]
+1697184159218:up_list <- head(rownames(up), n=10L)
+1697184159219:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697184159227:down <- down[order(down$log2FoldChange),]
+1697184159232:down_list <- head(rownames(down), n=10L)
+1697184159233:plot_top_20 <- c(up_list, down_list)
+1697184159234:EnhancedVolcano(res1,
+1697184159235:lab=rownames(res1),
+1697184159235:x="log2FoldChange",
+1697184159236:y="pvalue",
+1697184159236:selectLab=plot_top_20,
+1697184159237:drawConnectors=TRUE,
+1697184159237:FCcutoff=1.0,
+1697184159238:pCutoff=0.05,
+1697184159238:title="Volcano Plot",
+1697184159239:subtitle="Lung vs. Control",
+1697184159239:legendVisible=F,
+1697184159240:caption = paste0('Total Genes = ', nrow(res1)))
+1697184176845:?EnhancedVolcano
+1697184231617:EnhancedVolcano(res1,
+1697184231624:lab=rownames(res1),
+1697184231627:x="log2FoldChange",
+1697184231629:y="pvalue",
+1697184231631:selectLab=plot_top_20,
+1697184231632:drawConnectors=TRUE,
+1697184231635:FCcutoff=1.0,
+1697184231637:pCutoff=0.05,
+1697184231638:title="Volcano Plot",
+1697184231640:subtitle="Lung vs. Control",
+1697184231642:legendLabSize=2,
+1697184231643:caption = paste0('Total Genes = ', nrow(res1)))
+1697184247632:EnhancedVolcano(res1,
+1697184247640:lab=rownames(res1),
+1697184247643:x="log2FoldChange",
+1697184247646:y="pvalue",
+1697184247649:selectLab=plot_top_20,
+1697184247653:drawConnectors=TRUE,
+1697184247656:FCcutoff=1.0,
+1697184247659:pCutoff=0.05,
+1697184247664:title="Volcano Plot",
+1697184247667:subtitle="Lung vs. Control",
+1697184247670:legendLabSize=5,
+1697184247673:caption = paste0('Total Genes = ', nrow(res1)))
+1697184260399:EnhancedVolcano(res1,
+1697184260406:lab=rownames(res1),
+1697184260409:x="log2FoldChange",
+1697184260412:y="pvalue",
+1697184260415:selectLab=plot_top_20,
+1697184260418:drawConnectors=TRUE,
+1697184260421:FCcutoff=1.0,
+1697184260425:pCutoff=0.05,
+1697184260428:title="Volcano Plot",
+1697184260432:subtitle="Lung vs. Control",
+1697184260435:legendLabSize=8,
+1697184260439:caption = paste0('Total Genes = ', nrow(res1)))
+1697184394404:# subset the counts matrix to get the lung and control samples
+1697184394410:subset <- counts[, 1:6]
+1697184394415:# now select de_up, de_down, i.e DE genes that passed the filtering
+1697184394416:up <- rownames(de_up)
+1697184394417:down <- rownames(de_down)
+1697184394419:# subset them
+1697184394420:key <- c(up, down)
+1697184394421:subset <- subset[which(rownames(subset) %in% key),]
+1697184394427:# Scale and center the counts matrix
+1697184394428:# Scale works on columns, transpose the matrix to scale and center genes, transpose back.
+1697184394429:mat <- t(subset)
+1697184394431:mat <- scale(mat, center=T, scale=T)
+1697184394444:mat <- t(mat)
+1697184394444:mat <- na.omit(mat)
+1697184394446:# set up annotation dataframe
+1697184394447:ann <- data.frame(Cell_Type = c(rep("control", 3), c(rep("lung", 3))))
+1697184394448:# set up heatmap column annotation
+1697184394449:ha_col = HeatmapAnnotation(df = ann,
+1697184394450:col = list(Cell_Type = c("control" =  "gold",
+1697184394450:"lung" = "forestgreen")),
+1697184394451:annotation_legend_param = list(title_gp = gpar(fontsize = 12, fontface = "bold"),
+1697184394451:labels_gp = gpar(fontsize = 12)),
+1697184394452:annotation_name_side = "left")
+1697184394462:# set up heatmap object
+1697184394462:hm1 <- Heatmap(mat,
+1697184394462:col= colorRamp2(c(-2.6,-1,0,1,2.6),c("blue","skyblue","white","lightcoral","red")),
+1697184394463:heatmap_legend_param=list(at=c(-2.6,-1,0,1,2.6),color_bar="continuous",
+1697184394463:legend_direction="vertical", legend_width=unit(5,"cm"),
+1697184394464:title_position="topcenter", title_gp=gpar(fontsize=10, fontface="bold")),
+1697184394464:name = "Z-score",
+1697184394465:#Row annotation configurations
+1697184394466:cluster_rows=T,
+1697184394466:show_row_dend=T,
+1697184394467:row_title_side="right",
+1697184394467:row_title_gp=gpar(fontsize=8),
+1697184394468:show_row_names=FALSE,
+1697184394468:row_names_side="left",
+1697184394469:#Column annotation configuratiions
+1697184394470:cluster_columns=T,
+1697184394471:show_column_dend=T,
+1697184394471:column_title="Lung vs. Control DE Genes",
+1697184394472:column_title_side="top",
+1697184394472:column_title_gp=gpar(fontsize=15, fontface="bold"),
+1697184394473:show_column_names = T,
+1697184394474:column_names_gp = gpar(fontsize = 12, fontface="bold"),
+1697184394475:#Dendrogram configurations: columns
+1697184394475:clustering_distance_columns="euclidean",
+1697184394476:clustering_method_columns="complete",
+1697184394477:column_dend_height=unit(10,"mm"),
+1697184394478:#Dendrogram configurations: rows
+1697184394478:clustering_distance_rows="euclidean",
+1697184394479:clustering_method_rows="complete",
+1697184394479:row_dend_width=unit(4,"cm"),
+1697184394480:row_dend_side = "left",
+1697184394481:row_dend_reorder = TRUE,
+1697184394482:#Splits
+1697184394482:border=T,
+1697184394483:row_km = 1,
+1697184394483:column_km = 1,
+1697184394484:#plot params
+1697184394485:width = unit(5, "inch"),
+1697184394486:height = unit(4, "inch"),
+1697184394486:#height = unit(0.4, "cm")*nrow(mat),
+1697184394487:#Annotations
+1697184394488:top_annotation = ha_col)
+1697184394509:# plot heatmap
+1697184394510:draw(hm1, annotation_legend_side = "right", heatmap_legend_side="right")
+1697184464976:# subset the counts matrix to get the lung and control samples
+1697184464983:subset <- rld_counts[, 1:6]
+1697184465000:# now select de_up, de_down, i.e DE genes that passed the filtering our function produced
+1697184465008:up <- rownames(de_up)
+1697184465012:down <- rownames(de_down)
+1697184465018:# subset matrix to include only DE genes
+1697184465023:key <- c(up, down)
+1697184465027:subset <- subset[which(rownames(subset) %in% key),]
+1697184465046:# scale and center the values
+1697184465048:mat <- as.matrix(scale(t(subset), center = T))
+1697184465072:# basic plot to check we're plotting something sensible
+1697184465073:#pheatmap(t(mat))
+1697184465075:# spruce it up a bit..
+1697184465075:ann <- data.frame(Condition = c(rep("Control", 3), rep("Lung", 3)))
+1697184465076:rownames(ann) <- rownames(mat)
+1697184465077:col <- c("blue", "forestgreen")
+1697184465078:names(col) <- c("Control", "Lung")
+1697184465078:ann_col <- list(Condition = col)
+1697184465080:pheatmap(t(mat),
+1697184465080:show_rownames = FALSE,
+1697184465081:annotation_col = ann,
+1697184465082:annotation_colors = ann_col,
+1697184465082:color = hcl.colors(100, "PRGn",rev=F))
+1697185105382:res <- as.data.frame(res1) # lung vs control
+1697185105453:res$hgnc_symbol <- rownames(res)
+1697185105455:# compute summary stat
+1697185105455:fgsea_rank <- res %>%
+1697185105456:dplyr::select(hgnc_symbol, log2FoldChange) %>%
+1697185105456:na.omit() %>%
+1697185105457:distinct() %>%
+1697185105458:group_by(hgnc_symbol) %>%
+1697185105458:summarize(stat=mean(log2FoldChange))
+1697185105819:fgsea_rank
+1697185139785:rank <- deframe(fgsea_rank)
+1697185139791:head(rank, 20)
+1697185173732:pathway <- gmtPathways("/home/rstudio/rnaseq_data/quant/c5.bp.v7.0.symbols.gmt")
+1697185174508:head(pathway, 1)
+1697185195532:fgsea <- fgsea(pathways=pathway, stats=rank, nperm=1000)
+1697185205607:fgseaResTidy <- fgsea %>%
+1697185205608:as_tibble() %>%
+1697185205608:arrange(desc(NES))
+1697185205615:# Show in a nice table:
+1697185205616:fgseaResTidy %>%
+1697185205616:dplyr::select(-leadingEdge, -ES, -nMoreExtreme) %>%
+1697185205617:arrange(padj) %>%
+1697185205617:DT::datatable()
+1697185309051:filtered_pathway <- subset(fgsea, NES > 2.35)
+1697185309066:filt_up <- as.vector(filtered_pathway$pathway)
+1697185309069:for (i in filt_up){
+1697185309070:plt <- plotEnrichment(pathway = pathway[[i]],
+1697185309071:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1697185309073:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1697185309074:print(plt)
+1697185309075:}
+1697185370043:filtered_pathway <- subset(fgsea, NES > 2.35)
+1697185372462:filtered_pathway
+1697185383828:fgsea
+1697185409620:fgsea$NES
+1697185416790:summary(fgsea$NES)
+1697185438146:filtered_pathway <- subset(fgsea, NES > 2.08)
+1697185438153:filt_up <- as.vector(filtered_pathway$pathway)
+1697185438156:for (i in filt_up){
+1697185438157:plt <- plotEnrichment(pathway = pathway[[i]],
+1697185438158:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1697185438159:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1697185438162:print(plt)
+1697185438163:}
+1697185479875:fgsea
+1697185527417:filtered_pathway <- subset(fgsea, pathway = "GO_RESPONSE_TO_CYTOKINE")
+1697185530562:filtered_pathway
+1697185569898:filtered_pathway <- subset(fgsea, pathway = "GO_LIPOXIN_BIOSYNTHETIC_PROCESS")
+1697185595162:filterfiltered_pathway <- subset(fgsea, NES > 2.0)
+1697185596378:filtered_pathway <- subset(fgsea, NES > 2.0)
+1697185605018:filt_up <- as.vector(filtered_pathway$pathway)
+1697185605025:for (i in filt_up){
+1697185605028:plt <- plotEnrichment(pathway = pathway[[i]],
+1697185605031:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1697185605033:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1697185605034:print(plt)
+1697185605036:}
+1697185669416:summary(fgsea$NES)
+1697185680346:filtered_pathway <- subset(fgsea, NES < 2.5)
+1697185697313:filtered_pathway <- subset(fgsea, NES < 2.4)
+1697185709942:filtered_pathway <- subset(fgsea, NES > 2.0)
+1697185715104:filtered_pathway
+1697185743148:filtered_pathway <- subset(fgsea, NES < -2.5)
+1697185751045:filtered_pathway <- subset(fgsea, NES < -2.6)
+1697185760143:filtered_pathway <- subset(fgsea, NES < -2.6)
+1697185760152:filtered_pathway
+1697185787956:filt_down <- as.vector(filtered_pathway$pathway)
+1697185787963:for (i in filt_down){
+1697185787965:plt <- plotEnrichment(pathway = pathway[[i]],
+1697185787968:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1697185787970:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1697185787973:print(plt)
+1697185787976:}
+1697191591870:library(dplyr)
+1697191591877:library(biomaRt)
+1697191591878:library(tximport)
+1697191591879:library(rhdf5)
+1697191591880:library(gplots)
+1697191591881:library(org.Hs.eg.db)
+1697191591882:library(DESeq2)
+1697191591883:library(DT)
+1697191591905:library(apeglm)
+1697191593357:library(RColorBrewer)
+1697191593358:library(IHW)
+1697191593359:library(PCAtools)
+1697191593360:library(pheatmap)
+1697191593360:library(clusterProfiler)
+1697191594282:library(EnhancedVolcano)
+1697191594309:library(ComplexHeatmap)
+1697191594729:library(circlize)
+1697191594751:library(fgsea)
+1697191594752:library(tidyverse)
+1697191594753:library(ggpubr)
+1697191599058:quant_dir <- "/home/rstudio/rnaseq_data/quant"
+1697191599065:list.files(quant_dir)
+1697191603573:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1697191603579:samples
+1697191614120:samples$replicate <- factor(samples$replicate)
+1697191614127:# check its ok:
+1697191614128:factor_cols <- sapply(samples, is.factor)
+1697191614131:factor_cols
+1697191617720:files <- file.path(quant_dir, rownames(samples), "abundance.h5")
+1697191617728:names(files) <- paste0(rownames(samples))
+1697191617732:files
+1697191621771:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1697191626871:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1697191648349:head(tx2gene)
+1697191650761:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1697191659556:head(txi$abundance)
+1697191661337:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1697191668249:dds$condition <- relevel(dds$condition, ref = "control")
+1697191668372:dds <- DESeq(dds)
+1697191683007:resultsNames(dds)
+1697191685315:counts <- counts(dds, normalized=TRUE)
+1697191689895:log2_counts <- assay(normTransform(dds))
+1697191690027:rld_counts <- assay(rlog(dds))
+1697191695684:library(vsn)
+1697191695905:library(hexbin)
+1697191697870:log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+1697191697998:log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+1697191698352:rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+1697191698788:rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+1697191706856:write.table(counts, "normalised_counts.txt", sep="\t", quote = F)
+1697191707285:write.table(log2_counts, "log2_counts.txt", sep="\t", quote = F)
+1697191717949:## Calculate distance between samples
+1697191717955:sampleDists <- dist(t(rld_counts))
+1697191717969:## Place distances in matrix
+1697191717969:sampleDistMatrix <- as.matrix(sampleDists)
+1697191717971:## Optional, remove colnames
+1697191717972:colnames(sampleDistMatrix) <- NULL
+1697191717973:## create annotation dataframe
+1697191717973:ann <- data.frame(Condition = samples$condition)
+1697191717974:col <- c("blue", "forestgreen", "red1")
+1697191717975:names(col) <- c("melanoma", "lung", "control")
+1697191717975:ann_col <- list(Condition = col)
+1697191717976:## match annotation rownames to distance mat
+1697191717977:rownames(ann) <- rownames(sampleDistMatrix)
+1697191717978:pheatmap(mat=sampleDistMatrix,
+1697191717979:## pass distance metric calculated to heatmap
+1697191717979:clustering_distance_rows=sampleDists,
+1697191717980:clustering_distance_cols=sampleDists,
+1697191717981:## pass annotation dataframe
+1697191717981:annotation_col = ann,
+1697191717982:## add colors
+1697191717982:annotation_colors = ann_col,
+1697191717983:## heatmap colours
+1697191717983:col=hcl.colors(100,"GnBu",rev=T))
+1697191744281:p <- pca(rld_counts, metadata = samples)
+1697191744477:biplot(p,
+1697191744477:colby = 'condition',
+1697191744478:colkey = c('melanoma'='royalblue', 'control'='red1', 'lung'='forestgreen'),
+1697191744479:hline = 0,
+1697191744480:vline = 0,
+1697191744480:legendPosition = 'right',
+1697191744481:legendLabSize = 12,
+1697191744482:legendIconSize = 8.0,
+1697191744483:title = 'PCA bi-plot',
+1697191744483:subtitle = 'PC1 versus PC2')
+1697191754098:# make lung vs control object
+1697191754105:lung_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "lung", "control"))
+1697191762664:res1 <- lfcShrink(dds=dds, res=lung_v_ctrl, coef=4, type="apeglm")
+1697191791389:summary(res1)
+1697191791402:# make melanoma vs control object
+1697191791402:melanoma_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "melanoma", "control"))
+1697191796439:res2 <- lfcShrink(dds=dds, res=melanoma_v_ctrl, coef=5, type="apeglm")
+1697191827082:summary(res2)
+1697191831507:dds$condition <- relevel(dds$condition, ref = "melanoma")
+1697191831571:dds <- DESeq(dds)
+1697191844943:# double check it worked
+1697191844943:resultsNames(dds)
+1697191846902:lung_v_melanoma <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "lung", "melanoma"))
+1697191855662:res3 <- lfcShrink(dds=dds, res=lung_v_melanoma, coef=5, type="apeglm")
+1697191885280:summary(res3)
+1697191888145:get_upregulated <- function(df){
+1697191888151:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1697191888152:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1697191888153:return(results)
+1697191888154:}
+1697191892100:get_downregulated <- function(df){
+1697191892107:key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+1697191892110:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1697191892113:return(results)
+1697191892116:}
+1697191900342:annotate_de_genes <- function(df){
+1697191900349:df$hgnc_symbol <- rownames(df)
+1697191900350:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1697191900352:info <- getBM(attributes=c("hgnc_symbol",
+1697191900353:"ensembl_gene_id_version",
+1697191900354:"chromosome_name",
+1697191900355:"start_position",
+1697191900356:"end_position",
+1697191900357:"strand",
+1697191900358:"entrezgene_description"),
+1697191900359:filters = c("hgnc_symbol"),
+1697191900360:values = df$hgnc_symbol,
+1697191900360:mart = mart,
+1697191900361:useCache=FALSE)
+1697191900362:tmp <- merge(df, info, by="hgnc_symbol")
+1697191900363:tmp$strand <- gsub("-1", "-", tmp$strand)
+1697191900363:tmp$strand <- gsub("1", "+", tmp$strand)
+1697191900365:tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+1697191900366:tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+1697191900367:output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+1697191900369:tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+1697191900370:colnames(tmp) <- output_col
+1697191900371:if(min(tmp$Log2FC) > 0){
+1697191900372:tmp <- tmp[order(-tmp$Log2FC),]
+1697191900373:}else{
+1697191900374:tmp <- tmp[order(tmp$Log2FC),]
+1697191900374:}
+1697191900376:return(tmp)
+1697191900377:}
+1697191928111:de_up <- get_upregulated(as.data.frame(res1))
+1697191928163:de_down <- get_downregulated(as.data.frame(res1))
+1697191928191:upregulated_genes <- annotate_de_genes(de_up)
+1697191940409:downregulated_genes <- annotate_de_genes(de_down)
+1697191943797:#confirm these worked
+1697191943798:head(upregulated_genes)
+1697191943803:#dir.create("/home/rstudio/rnaseq_data/DESeq_results/")
+1697191943804:write.table(upregulated_genes, "lung_vs_control_upregulated.txt", sep="\t", row.names=F, quote=F)
+1697191943812:write.table(downregulated_genes, "lung_vs_control_downregulated.txt", sep="\t", row.names=F, quote=F)
+1697191960214:## remove NA values from results
+1697191960220:res1 <- na.omit(res1)
+1697191960315:## calculate min/max axis values for plot (optional)
+1697191960316:min_width <- min(res1$log2FoldChange)
+1697191960318:max_width <- max(res1$log2FoldChange)
+1697191960320:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697191960335:## Grab top 10 up-reg genes for plot
+1697191960336:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697191960360:up <- up[order(-up$log2FoldChange),]
+1697191960371:up_list <- head(rownames(up), n=10L)
+1697191960372:## Grab top 10 down-reg genes for plot
+1697191960373:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697191960379:down <- down[order(down$log2FoldChange),]
+1697191960382:down_list <- head(rownames(down), n=10L)
+1697191960383:## place top 20 DE genes in vector (optinal...)
+1697191960384:plot_top_20 <- c(up_list, down_list)
+1697191960384:EnhancedVolcano(res1,
+1697191960385:lab=rownames(res1),
+1697191960385:x="log2FoldChange",
+1697191960386:y="pvalue",
+1697191960386:selectLab=plot_top_20,
+1697191960386:drawConnectors=TRUE,
+1697191960387:legendPosition = "none",
+1697191960387:FCcutoff=1.0,
+1697191960388:pCutoff=0.05,
+1697191960388:title="Volcano Plot",
+1697191960389:subtitle="Lung vs. Control",
+1697191960389:caption = paste0('Total Genes = ', nrow(res1)),
+1697191960390:xlim=c(min_width, max_width),
+1697191960390:ylim=c(0, max_height))
+1697191971419:res1 <- na.omit(lung_v_ctrl)
+1697191971494:min_width <- min(res1$log2FoldChange)
+1697191971499:max_width <- max(res1$log2FoldChange)
+1697191971504:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1697191971515:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1697191971525:up <- up[order(-up$log2FoldChange),]
+1697191971529:up_list <- head(rownames(up), n=10L)
+1697191971530:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1697191971540:down <- down[order(down$log2FoldChange),]
+1697191971545:down_list <- head(rownames(down), n=10L)
+1697191971546:plot_top_20 <- c(up_list, down_list)
+1697191971546:EnhancedVolcano(res1,
+1697191971546:lab=rownames(res1),
+1697191971547:x="log2FoldChange",
+1697191971547:y="pvalue",
+1697191971548:selectLab=plot_top_20,
+1697191971548:drawConnectors=TRUE,
+1697191971549:FCcutoff=1.0,
+1697191971549:pCutoff=0.05,
+1697191971550:title="Volcano Plot",
+1697191971551:subtitle="Lung vs. Control",
+1697191971551:legendLabSize=8,
+1697191971552:caption = paste0('Total Genes = ', nrow(res1)))
+1697191972780:##reset res1 for heatmaps
+1697191972781:res1 <- na.omit(res1)
+1697191985657:# subset the counts matrix to get the lung and control samples
+1697191985663:subset <- rld_counts[, 1:6]
+1697191985735:# now select de_up, de_down, i.e DE genes that passed the filtering our function produced
+1697191985736:up <- rownames(de_up)
+1697191985737:down <- rownames(de_down)
+1697191985738:# subset matrix to include only DE genes
+1697191985738:key <- c(up, down)
+1697191985739:subset <- subset[which(rownames(subset) %in% key),]
+1697191985742:# scale and center the values
+1697191985743:mat <- as.matrix(scale(t(subset), center = T))
+1697191985753:# basic plot to check we're plotting something sensible
+1697191985754:#pheatmap(t(mat))
+1697191985754:# spruce it up a bit..
+1697191985755:ann <- data.frame(Condition = c(rep("Control", 3), rep("Lung", 3)))
+1697191985756:rownames(ann) <- rownames(mat)
+1697191985757:col <- c("blue", "forestgreen")
+1697191985758:names(col) <- c("Control", "Lung")
+1697191985758:ann_col <- list(Condition = col)
+1697191985759:pheatmap(t(mat),
+1697191985760:show_rownames = FALSE,
+1697191985760:annotation_col = ann,
+1697191985761:annotation_colors = ann_col,
+1697191985761:color = hcl.colors(100, "PRGn",rev=F))
+1697192002290:## convert result object to dataframe
+1697192002293:res <- as.data.frame(res1) # lung vs control
+1697192002378:res$hgnc_symbol <- rownames(res)
+1697192002381:# compute summary stat
+1697192002381:fgsea_rank <- res %>%
+1697192002382:dplyr::select(hgnc_symbol, log2FoldChange) %>%
+1697192002383:na.omit() %>%
+1697192002384:distinct() %>%
+1697192002384:group_by(hgnc_symbol) %>%
+1697192002385:summarize(stat=mean(log2FoldChange))
+1697192002700:fgsea_rank
+1700039402272:knitr::opts_chunk$set(echo = TRUE)
+1700039402595:library(dplyr)
+1700039402597:library(biomaRt)
+1700039402599:library(tximport)
+1700039402601:library(rhdf5)
+1700039402603:library(gplots)
+1700039402605:library(org.Hs.eg.db)
+1700039402607:library(DESeq2)
+1700039402609:library(DT)
+1700039402634:library(apeglm)
+1700039404018:library(RColorBrewer)
+1700039404020:library(IHW)
+1700039404022:library(PCAtools)
+1700039404024:library(pheatmap)
+1700039404026:library(clusterProfiler)
+1700039404898:library(EnhancedVolcano)
+1700039404921:library(ComplexHeatmap)
+1700039405243:library(circlize)
+1700039405266:library(fgsea)
+1700039405268:library(tidyverse)
+1700039405270:library(ggpubr)
+1700039405425:quant_dir <- "/home/rstudio/"
+1700039405427:list.files(quant_dir)
+1700039405432:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "Sample", stringsAsFactors = T)
+1700039560294:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "Sample", stringsAsFactors = T)
+1700039571396:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1700039571442:samples
+1700039576758:samples$Replicate <- factor(samples$Replicate)
+1700039585000:samples$replicate <- factor(samples$replicate)
+1700039585006:factor_cols <- sapply(samples, is.factor)
+1700039585010:factor_cols
+1700039590645:files <- file.path(quant_dir, rownames(samples), "abundance.tsv")
+1700039590649:names(files) <- paste0(rownames(samples))
+1700039590652:files
+1700039597911:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700039620330:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1700039647987:head(tx2gene)
+1700039648102:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1700042284930:quant_dir <- "/home/rstudio/"
+1700042284933:list.files(quant_dir)
+1700042287403:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1700042287409:samples
+1700042290301:samples$replicate <- factor(samples$replicate)
+1700042290308:factor_cols <- sapply(samples, is.factor)
+1700042290311:factor_cols
+1700042292449:files <- file.path(quant_dir, rownames(samples), "abundance.tsv")
+1700042292452:names(files) <- paste0(rownames(samples))
+1700042292456:files
+1700042294749:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700042299537:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1700042326424:head(tx2gene)
+1700042341257:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1700042348754:head(txi$abundance)
+1700042365189:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1700042370719:dds$Condition <- relevel(dds$Condition, ref = "control")
+1700042383017:dds$condition <- relevel(dds$condition, ref = "control")
+1700042383122:dds <- DESeq(dds)
+1700042391913:resultsNames(dds)
+1700042399303:dds <- DESeq(dds)
+1700042408124:resultsNames(dds)
+1700042408143:counts <- counts(dds, normalized=TRUE)
+1700042410443:log2_counts <- assay(normTransform(dds))
+1700042410553:rld_counts <- assay(rlog(dds))
+1700042415063:library(vsn)
+1700042415272:library(hexbin)
+1700042415362:log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+1700042415527:log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+1700042421440:rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+1700042421570:rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+1700042428469:write.table(counts, "normalised_counts.txt", sep="\t", quote = F)
+1700042428733:write.table(log2_counts, "log2_counts.txt", sep="\t", quote = F)
+1700042432050:sampleDists <- dist(t(rld_counts))
+1700042432064:sampleDistMatrix <- as.matrix(sampleDists)
+1700042432073:colnames(sampleDistMatrix) <- NULL
+1700042432082:ann <- data.frame(Condition = samples$Condition)
+1700042432089:col <- c("blue", "red1")
+1700042432095:names(col) <- c("tumour", "control")
+1700042432100:ann_col <- list(Condition = col)
+1700042432109:## match annotation rownames to distance mat
+1700042432113:rownames(ann) <- rownames(sampleDistMatrix)
+1700042446928:sampleDists <- dist(t(rld_counts))
+1700042446941:sampleDistMatrix <- as.matrix(sampleDists)
+1700042446949:colnames(sampleDistMatrix) <- NULL
+1700042446957:ann <- data.frame(condition = samples$condition)
+1700042446965:col <- c("blue", "red1")
+1700042446971:names(col) <- c("tumour", "control")
+1700042446976:ann_col <- list(Condition = col)
+1700042446984:## match annotation rownames to distance mat
+1700042446988:rownames(ann) <- rownames(sampleDistMatrix)
+1700042446996:pheatmap(mat=sampleDistMatrix,
+1700042447000:clustering_distance_rows=sampleDists,
+1700042447004:clustering_distance_cols=sampleDists,
+1700042447008:annotation_col = ann,
+1700042447012:annotation_colors = ann_col,
+1700042447016:col=hcl.colors(100,"GnBu",rev=T))
+1700042461589:p <- pca(rld_counts, metadata = samples)
+1700042461694:biplot(p,
+1700042461698:colby = 'condition',
+1700042461703:colkey = c('tumour'='royalblue', 'control'='red1'),
+1700042461707:hline = 0,
+1700042461711:vline = 0,
+1700042461715:legendPosition = 'right',
+1700042461720:legendLabSize = 12,
+1700042461724:legendIconSize = 8.0,
+1700042461728:title = 'PCA bi-plot',
+1700042461733:subtitle = 'PC1 versus PC2')
+1700042471928:tumour_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "tumour", "control"))
+1700042476606:res1 <- lfcShrink(dds=dds, res=tumour_v_ctrl, coef=4, type="apeglm")
+1700042490941:summary(res1)
+1700042494975:get_upregulated <- function(df){
+1700042494979:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1700042494983:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700042494988:return(results)
+1700042494992:}
+1700042499085:get_downregulated <- function(df){
+1700042499088:key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+1700042499090:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700042499092:return(results)
+1700042499094:}
+1700042501554:annotate_de_genes <- function(df){
+1700042501557:df$hgnc_symbol <- rownames(df)
+1700042501560:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700042501562:info <- getBM(attributes=c("hgnc_symbol",
+1700042501564:"ensembl_gene_id_version",
+1700042501566:"chromosome_name",
+1700042501568:"start_position",
+1700042501570:"end_position",
+1700042501573:"strand",
+1700042501575:"entrezgene_description"),
+1700042501577:filters = c("hgnc_symbol"),
+1700042501579:values = df$hgnc_symbol,
+1700042501581:mart = mart,
+1700042501583:useCache=FALSE)
+1700042501587:tmp <- merge(df, info, by="hgnc_symbol")
+1700042501589:tmp$strand <- gsub("-1", "-", tmp$strand)
+1700042501591:tmp$strand <- gsub("1", "+", tmp$strand)
+1700042501593:tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+1700042501595:tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+1700042501599:output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+1700042501601:tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+1700042501603:colnames(tmp) <- output_col
+1700042501606:if(min(tmp$Log2FC) > 0){
+1700042501609:tmp <- tmp[order(-tmp$Log2FC),]
+1700042501611:}else{
+1700042501613:tmp <- tmp[order(tmp$Log2FC),]
+1700042501615:}
+1700042501619:return(tmp)
+1700042501622:}
+1700042506236:de_up <- get_upregulated(as.data.frame(res1))
+1700042506264:de_down <- get_downregulated(as.data.frame(res1))
+1700042506286:upregulated_genes <- annotate_de_genes(de_up)
+1700042516456:downregulated_genes <- annotate_de_genes(de_down)
+1700042524176:#confirm these worked
+1700042524178:head(upregulated_genes)
+1700042524193:res1 <- na.omit(res1)
+1700042524221:min_width <- min(res1$log2FoldChange)
+1700042524225:max_width <- max(res1$log2FoldChange)
+1700042524229:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700042524250:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700042524278:up <- up[order(-up$log2FoldChange),]
+1700042524290:up_list <- head(rownames(up), n=10L)
+1700042524296:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700042524305:down <- down[order(down$log2FoldChange),]
+1700042524310:down_list <- head(rownames(down), n=10L)
+1700042524315:plot_top_20 <- c(up_list, down_list)
+1700042524320:EnhancedVolcano(res1,
+1700042524322:lab=rownames(res1),
+1700042524324:x="log2FoldChange",
+1700042524327:y="pvalue",
+1700042524329:selectLab=plot_top_20,
+1700042524331:drawConnectors=TRUE,
+1700042524333:legendPosition = "none",
+1700042524335:FCcutoff=1.0,
+1700042524338:pCutoff=0.05,
+1700042524340:title="Volcano Plot",
+1700042524342:subtitle="Tumour vs. Control",
+1700042524344:caption = paste0('Total Genes = ', nrow(res1)),
+1700042524346:xlim=c(min_width, max_width),
+1700042524349:ylim=c(0, max_height))
+1700042529415:res1 <- na.omit(res1)
+1700042529431:min_width <- min(res1$log2FoldChange)
+1700042529436:max_width <- max(res1$log2FoldChange)
+1700042529439:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700042529451:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700042529459:up <- up[order(-up$log2FoldChange),]
+1700042529464:up_list <- head(rownames(up), n=10L)
+1700042529469:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700042529477:down <- down[order(down$log2FoldChange),]
+1700042529483:down_list <- head(rownames(down), n=10L)
+1700042529487:plot_top_20 <- c(up_list, down_list)
+1700042529492:EnhancedVolcano(res1,
+1700042529494:lab=rownames(res1),
+1700042529497:x="log2FoldChange",
+1700042529499:y="pvalue",
+1700042529501:selectLab=plot_top_20,
+1700042529503:drawConnectors=TRUE,
+1700042529505:legendPosition = "none",
+1700042529507:FCcutoff=1.0,
+1700042529509:pCutoff=0.05,
+1700042529511:title="Volcano Plot",
+1700042529514:subtitle="Tumour vs. Control",
+1700042529516:caption = paste0('Total Genes = ', nrow(res1)),
+1700042529518:xlim=c(min_width, max_width),
+1700042529520:ylim=c(0, max_height))
+1700042534563:res1 <- na.omit(tumour_v_ctrl)
+1700042534582:min_width <- min(res1$log2FoldChange)
+1700042534586:max_width <- max(res1$log2FoldChange)
+1700042534590:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700042534601:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700042534610:up <- up[order(-up$log2FoldChange),]
+1700042534615:up_list <- head(rownames(up), n=10L)
+1700042534620:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700042534629:down <- down[order(down$log2FoldChange),]
+1700042534634:down_list <- head(rownames(down), n=10L)
+1700042534639:plot_top_20 <- c(up_list, down_list)
+1700042534642:EnhancedVolcano(res1,
+1700042534644:lab=rownames(res1),
+1700042534647:x="log2FoldChange",
+1700042534649:y="pvalue",
+1700042534651:selectLab=plot_top_20,
+1700042534653:drawConnectors=TRUE,
+1700042534655:FCcutoff=1.0,
+1700042534658:pCutoff=0.05,
+1700042534660:title="Volcano Plot",
+1700042534662:subtitle="Tumour vs. Control",
+1700042534664:legendLabSize=8,
+1700042534668:caption = paste0('Total Genes = ', nrow(res1)))
+1700042540475:res1 <- na.omit(res1)
+1700042543238:subset <- rld_counts[, 1:6]
+1700042543246:up <- rownames(de_up)
+1700042543249:down <- rownames(de_down)
+1700042543254:key <- c(up, down)
+1700042543257:subset <- subset[which(rownames(subset) %in% key),]
+1700042543265:mat <- as.matrix(scale(t(subset), center = T))
+1700042543274:ann <- data.frame(Condition = c(rep("Control", 3), rep("Tumour", 3)))
+1700042543278:rownames(ann) <- rownames(mat)
+1700042543282:col <- c("blue", "forestgreen")
+1700042543285:names(col) <- c("Control", "Tumour")
+1700042543289:ann_col <- list(Condition = col)
+1700042543295:pheatmap(t(mat),
+1700042543297:show_rownames = FALSE,
+1700042543299:annotation_col = ann,
+1700042543301:annotation_colors = ann_col,
+1700042543303:color = hcl.colors(100, "PRGn",rev=F))
+1700042548047:res <- as.data.frame(res1) # tumour vs control
+1700042548063:res$hgnc_symbol <- rownames(res)
+1700042548069:fgsea_rank <- res %>%
+1700042548071:dplyr::select(hgnc_symbol, log2FoldChange) %>%
+1700042548074:na.omit() %>%
+1700042548076:distinct() %>%
+1700042548078:group_by(hgnc_symbol) %>%
+1700042548080:summarize(stat=mean(log2FoldChange))
+1700042548352:fgsea_rank
+1700042556192:rank <- deframe(fgsea_rank)
+1700042556196:head(rank, 20)
+1700042559572:pathway <- gmtPathways("/home/rstudio/c6.all.v2023.2.Hs.symbols.gmt")
+1700042559605:head(pathway, 1)
+1700042562940:fgsea <- fgsea(pathways=pathway, stats=rank, nperm=1000)
+1700042567726:fgseaResTidy <- fgsea %>%
+1700042567728:as_tibble() %>%
+1700042567730:arrange(desc(NES))
+1700042567816:fgseaResTidy %>%
+1700042567819:dplyr::select(-leadingEdge, -ES, -nMoreExtreme) %>%
+1700042567821:arrange(padj) %>%
+1700042567823:DT::datatable()
+1700042571406:filtered_pathway <- subset(fgsea, NES > 1.2)
+1700042571419:filtered_pathway
+1700042574254:filt_up <- as.vector(filtered_pathway$pathway)
+1700042574260:for (i in filt_up){
+1700042574262:plt <- plotEnrichment(pathway = pathway[[i]],
+1700042574264:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700042574266:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700042574269:print(plt)
+1700042574271:}
+1700042577939:filtered_pathway <- subset(fgsea, NES < -1.3)
+1700042577951:filtered_pathway
+1700042581052:filt_down <- as.vector(filtered_pathway$pathway)
+1700042581057:for (i in filt_down){
+1700042581060:plt <- plotEnrichment(pathway = pathway[[i]],
+1700042581062:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700042581064:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700042581066:print(plt)
+1700042581068:}
+1700234498342:knitr::opts_chunk$set(echo = TRUE)
+1700234498479:library(dplyr)
+1700234498482:library(biomaRt)
+1700234498484:library(tximport)
+1700234498486:library(rhdf5)
+1700234498488:library(gplots)
+1700234498490:library(org.Hs.eg.db)
+1700234498493:library(DESeq2)
+1700234498495:library(DT)
+1700234498497:library(apeglm)
+1700234498499:library(RColorBrewer)
+1700234498502:library(IHW)
+1700234498504:library(PCAtools)
+1700234498506:library(pheatmap)
+1700234498509:library(clusterProfiler)
+1700234498511:library(EnhancedVolcano)
+1700234498513:library(ComplexHeatmap)
+1700234498515:library(circlize)
+1700234498517:library(fgsea)
+1700234498520:library(tidyverse)
+1700234498522:library(ggpubr)
+1700234498533:quant_dir <- "/home/rstudio/"
+1700234498537:list.files(quant_dir)
+1700234498545:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1700234498551:samples
+1700234498564:samples$replicate <- factor(samples$replicate)
+1700234498571:factor_cols <- sapply(samples, is.factor)
+1700234498575:factor_cols
+1700234498581:files <- file.path(quant_dir, rownames(samples), "abundance.tsv")
+1700234498585:names(files) <- paste0(rownames(samples))
+1700234498589:files
+1700234498597:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700234499529:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1700234512821:head(tx2gene)
+1700234512833:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1700234520421:head(txi$abundance)
+1700234520432:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1700234520851:dds$condition <- relevel(dds$condition, ref = "control")
+1700234520950:dds <- DESeq(dds)
+1700234529792:resultsNames(dds)
+1700234529812:dds <- DESeq(dds)
+1700234539377:resultsNames(dds)
+1700234539395:counts <- counts(dds, normalized=TRUE)
+1700234539432:log2_counts <- assay(normTransform(dds))
+1700234539541:rld_counts <- assay(rlog(dds))
+1700234543047:library(vsn)
+1700234543050:library(hexbin)
+1700234543053:log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+1700234543149:log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+1700234543564:rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+1700234543690:rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+1700234544198:write.table(counts, "normalised_counts.txt", sep="\t", quote = F)
+1700234544454:write.table(log2_counts, "log2_counts.txt", sep="\t", quote = F)
+1700234544672:sampleDists <- dist(t(rld_counts))
+1700234544683:sampleDistMatrix <- as.matrix(sampleDists)
+1700234544690:colnames(sampleDistMatrix) <- NULL
+1700234544696:ann <- data.frame(condition = samples$condition)
+1700234544702:col <- c("blue", "red1")
+1700234544706:names(col) <- c("tumour", "control")
+1700234544709:ann_col <- list(Condition = col)
+1700234544715:## match annotation rownames to distance mat
+1700234544717:rownames(ann) <- rownames(sampleDistMatrix)
+1700234544723:pheatmap(mat=sampleDistMatrix,
+1700234544725:clustering_distance_rows=sampleDists,
+1700234544727:clustering_distance_cols=sampleDists,
+1700234544729:annotation_col = ann,
+1700234544731:annotation_colors = ann_col,
+1700234544733:col=hcl.colors(100,"GnBu",rev=T))
+1700234546233:p <- pca(rld_counts, metadata = samples)
+1700234546330:biplot(p,
+1700234546332:colby = 'condition',
+1700234546334:colkey = c('tumour'='royalblue', 'control'='red1'),
+1700234546336:hline = 0,
+1700234546338:vline = 0,
+1700234546340:legendPosition = 'right',
+1700234546342:legendLabSize = 12,
+1700234546344:legendIconSize = 8.0,
+1700234546346:title = 'PCA bi-plot',
+1700234546349:subtitle = 'PC1 versus PC2')
+1700234547059:tumour_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "tumour", "control"))
+1700234551186:res1 <- lfcShrink(dds=dds, res=tumour_v_ctrl, coef=4, type="apeglm")
+1700234564999:summary(res1)
+1700234565019:get_upregulated <- function(df){
+1700234565021:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1700234565024:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700234565026:return(results)
+1700234565028:}
+1700234565035:get_downregulated <- function(df){
+1700234565038:key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+1700234565040:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700234565043:return(results)
+1700234565045:}
+1700234565052:annotate_de_genes <- function(df){
+1700234565056:df$hgnc_symbol <- rownames(df)
+1700234565058:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700234565060:info <- getBM(attributes=c("hgnc_symbol",
+1700234565062:"ensembl_gene_id_version",
+1700234565064:"chromosome_name",
+1700234565067:"start_position",
+1700234565069:"end_position",
+1700234565071:"strand",
+1700234565073:"entrezgene_description"),
+1700234565075:filters = c("hgnc_symbol"),
+1700234565078:values = df$hgnc_symbol,
+1700234565080:mart = mart,
+1700234565082:useCache=FALSE)
+1700234565086:tmp <- merge(df, info, by="hgnc_symbol")
+1700234565089:tmp$strand <- gsub("-1", "-", tmp$strand)
+1700234565091:tmp$strand <- gsub("1", "+", tmp$strand)
+1700234565093:tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+1700234565095:tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+1700234565100:output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+1700234565102:tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+1700234565104:colnames(tmp) <- output_col
+1700234565108:if(min(tmp$Log2FC) > 0){
+1700234565110:tmp <- tmp[order(-tmp$Log2FC),]
+1700234565112:}else{
+1700234565114:tmp <- tmp[order(tmp$Log2FC),]
+1700234565117:}
+1700234565121:return(tmp)
+1700234565124:}
+1700234565131:de_up <- get_upregulated(as.data.frame(res1))
+1700234565156:de_down <- get_downregulated(as.data.frame(res1))
+1700234565176:upregulated_genes <- annotate_de_genes(de_up)
+1700234566307:downregulated_genes <- annotate_de_genes(de_down)
+1700234567128:#confirm these worked
+1700234567131:head(upregulated_genes)
+1700234567144:res1 <- na.omit(res1)
+1700234567169:min_width <- min(res1$log2FoldChange)
+1700234567174:max_width <- max(res1$log2FoldChange)
+1700234567177:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700234567196:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700234567222:up <- up[order(-up$log2FoldChange),]
+1700234567233:up_list <- head(rownames(up), n=10L)
+1700234567239:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700234567247:down <- down[order(down$log2FoldChange),]
+1700234567252:down_list <- head(rownames(down), n=10L)
+1700234567257:plot_top_20 <- c(up_list, down_list)
+1700234567262:EnhancedVolcano(res1,
+1700234567264:lab=rownames(res1),
+1700234567267:x="log2FoldChange",
+1700234567269:y="pvalue",
+1700234567271:selectLab=plot_top_20,
+1700234567273:drawConnectors=TRUE,
+1700234567275:legendPosition = "none",
+1700234567277:FCcutoff=1.0,
+1700234567279:pCutoff=0.05,
+1700234567281:title="Volcano Plot",
+1700234567283:subtitle="Tumour vs. Control",
+1700234567285:caption = paste0('Total Genes = ', nrow(res1)),
+1700234567288:xlim=c(min_width, max_width),
+1700234567290:ylim=c(0, max_height))
+1700234568641:res1 <- na.omit(res1)
+1700234568657:min_width <- min(res1$log2FoldChange)
+1700234568662:max_width <- max(res1$log2FoldChange)
+1700234568666:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700234568677:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700234568686:up <- up[order(-up$log2FoldChange),]
+1700234568692:up_list <- head(rownames(up), n=10L)
+1700234568696:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700234568706:down <- down[order(down$log2FoldChange),]
+1700234568712:down_list <- head(rownames(down), n=10L)
+1700234568717:plot_top_20 <- c(up_list, down_list)
+1700234568721:EnhancedVolcano(res1,
+1700234568724:lab=rownames(res1),
+1700234568726:x="log2FoldChange",
+1700234568728:y="pvalue",
+1700234568730:selectLab=plot_top_20,
+1700234568732:drawConnectors=TRUE,
+1700234568734:legendPosition = "none",
+1700234568736:FCcutoff=1.0,
+1700234568738:pCutoff=0.05,
+1700234568741:title="Volcano Plot",
+1700234568743:subtitle="Tumour vs. Control",
+1700234568745:caption = paste0('Total Genes = ', nrow(res1)),
+1700234568747:xlim=c(min_width, max_width),
+1700234568750:ylim=c(0, max_height))
+1700234570160:res1 <- na.omit(res1)
+1700234570176:subset <- rld_counts[, 1:6]
+1700234570183:up <- rownames(de_up)
+1700234570186:down <- rownames(de_down)
+1700234570191:key <- c(up, down)
+1700234570194:subset <- subset[which(rownames(subset) %in% key),]
+1700234570201:mat <- as.matrix(scale(t(subset), center = T))
+1700234570210:ann <- data.frame(Condition = c(rep("Control", 3), rep("Tumour", 3)))
+1700234570215:rownames(ann) <- rownames(mat)
+1700234570219:col <- c("blue", "forestgreen")
+1700234570222:names(col) <- c("Control", "Tumour")
+1700234570225:ann_col <- list(Condition = col)
+1700234570231:pheatmap(t(mat),
+1700234570233:show_rownames = FALSE,
+1700234570235:annotation_col = ann,
+1700234570238:annotation_colors = ann_col,
+1700234570240:color = hcl.colors(100, "PRGn",rev=F))
+1700234574701:res <- as.data.frame(res1) # tumour vs control
+1700234574713:res$hgnc_symbol <- rownames(res)
+1700234574718:fgsea_rank <- res %>%
+1700234574720:dplyr::select(hgnc_symbol, log2FoldChange) %>%
+1700234574722:na.omit() %>%
+1700234574724:distinct() %>%
+1700234574726:group_by(hgnc_symbol) %>%
+1700234574729:summarize(stat=mean(log2FoldChange))
+1700234575017:fgsea_rank
+1700234575042:rank <- deframe(fgsea_rank)
+1700234575046:head(rank, 20)
+1700234575057:pathway <- gmtPathways("/home/rstudio/c6.all.v2023.2.Hs.symbols.gmt")
+1700234575089:head(pathway, 1)
+1700234575117:fgsea <- fgsea(pathways=pathway, stats=rank, nperm=1000)
+1700234579921:fgseaResTidy <- fgsea %>%
+1700234579924:as_tibble() %>%
+1700234579926:arrange(desc(NES))
+1700234580011:fgseaResTidy %>%
+1700234580016:dplyr::select(-leadingEdge, -ES, -nMoreExtreme) %>%
+1700234580018:arrange(padj) %>%
+1700234580021:DT::datatable()
+1700234580236:filtered_pathway <- subset(fgsea, NES > 1.2)
+1700234580285:filtered_pathway
+1700234580319:filt_up <- as.vector(filtered_pathway$pathway)
+1700234580325:for (i in filt_up){
+1700234580328:plt <- plotEnrichment(pathway = pathway[[i]],
+1700234580330:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700234580332:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700234580335:print(plt)
+1700234580337:}
+1700234596606:filtered_pathway <- subset(fgsea, NES < -1.3)
+1700234596622:filtered_pathway
+1700234596639:filt_down <- as.vector(filtered_pathway$pathway)
+1700234596644:for (i in filt_down){
+1700234596646:plt <- plotEnrichment(pathway = pathway[[i]],
+1700234596649:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700234596651:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700234596653:print(plt)
+1700234596655:}
+1700240201984:res1 <- na.omit(tumour_v_ctrl)
+1700240202003:min_width <- min(res1$log2FoldChange)
+1700240202008:max_width <- max(res1$log2FoldChange)
+1700240202012:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700240202024:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700240202032:up <- up[order(-up$log2FoldChange),]
+1700240202038:up_list <- head(rownames(up), n=10L)
+1700240202043:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700240202051:down <- down[order(down$log2FoldChange),]
+1700240202057:down_list <- head(rownames(down), n=10L)
+1700240202062:plot_top_20 <- c(up_list, down_list)
+1700240202065:EnhancedVolcano(res1,
+1700240202067:lab=rownames(res1),
+1700240202069:x="log2FoldChange",
+1700240202071:y="pvalue",
+1700240202074:selectLab=plot_top_20,
+1700240202076:drawConnectors=TRUE,
+1700240202078:FCcutoff=1.0,
+1700240202080:pCutoff=0.05,
+1700240202082:title="Volcano Plot",
+1700240202084:subtitle="Tumour vs. Control",
+1700240202087:legendLabSize=8,
+1700240202089:caption = paste0('Total Genes = ', nrow(res1)))
+1700243481852:knitr::opts_chunk$set(echo = TRUE)
+1700243481858:library(dplyr)
+1700243481860:library(biomaRt)
+1700243481863:library(tximport)
+1700243481865:library(rhdf5)
+1700243481867:library(gplots)
+1700243481869:library(org.Hs.eg.db)
+1700243481871:library(DESeq2)
+1700243481873:library(DT)
+1700243481875:library(apeglm)
+1700243481877:library(RColorBrewer)
+1700243481880:library(IHW)
+1700243481881:library(PCAtools)
+1700243481884:library(pheatmap)
+1700243481886:library(clusterProfiler)
+1700243481888:library(EnhancedVolcano)
+1700243481890:library(ComplexHeatmap)
+1700243481892:library(circlize)
+1700243481894:library(fgsea)
+1700243481896:library(tidyverse)
+1700243481898:library(ggpubr)
+1700243481904:quant_dir <- "/home/rstudio/"
+1700243481908:list.files(quant_dir)
+1700243481916:samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+1700243481921:samples
+1700243481935:samples$replicate <- factor(samples$replicate)
+1700243481942:factor_cols <- sapply(samples, is.factor)
+1700243481946:factor_cols
+1700243481952:files <- file.path(quant_dir, rownames(samples), "abundance.tsv")
+1700243481955:names(files) <- paste0(rownames(samples))
+1700243481959:files
+1700243481966:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700243491744:tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+1700243521942:head(tx2gene)
+1700243521955:txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+1700243527195:head(txi$abundance)
+1700243527206:dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+1700243527496:dds$condition <- relevel(dds$condition, ref = "control")
+1700243527534:dds <- DESeq(dds)
+1700243536017:resultsNames(dds)
+1700243536035:dds <- DESeq(dds)
+1700243544300:resultsNames(dds)
+1700243544318:counts <- counts(dds, normalized=TRUE)
+1700243544353:log2_counts <- assay(normTransform(dds))
+1700243544444:rld_counts <- assay(rlog(dds))
+1700243547898:library(vsn)
+1700243547900:library(hexbin)
+1700243547904:log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+1700243548046:log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+1700243548397:rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+1700243548471:rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+1700243548952:write.table(counts, "normalised_counts.txt", sep="\t", quote = F)
+1700243549209:write.table(log2_counts, "log2_counts.txt", sep="\t", quote = F)
+1700243549431:sampleDists <- dist(t(rld_counts))
+1700243549442:sampleDistMatrix <- as.matrix(sampleDists)
+1700243549448:colnames(sampleDistMatrix) <- NULL
+1700243549454:ann <- data.frame(condition = samples$condition)
+1700243549459:col <- c("blue", "red1")
+1700243549462:names(col) <- c("tumour", "control")
+1700243549466:ann_col <- list(Condition = col)
+1700243549472:## match annotation rownames to distance mat
+1700243549474:rownames(ann) <- rownames(sampleDistMatrix)
+1700243549479:pheatmap(mat=sampleDistMatrix,
+1700243549481:clustering_distance_rows=sampleDists,
+1700243549483:clustering_distance_cols=sampleDists,
+1700243549485:annotation_col = ann,
+1700243549488:annotation_colors = ann_col,
+1700243549490:col=hcl.colors(100,"GnBu",rev=T))
+1700243550249:p <- pca(rld_counts, metadata = samples)
+1700243550319:biplot(p,
+1700243550321:colby = 'condition',
+1700243550323:colkey = c('tumour'='royalblue', 'control'='red1'),
+1700243550325:hline = 0,
+1700243550328:vline = 0,
+1700243550330:legendPosition = 'right',
+1700243550332:legendLabSize = 12,
+1700243550334:legendIconSize = 8.0,
+1700243550336:title = 'PCA bi-plot',
+1700243550339:subtitle = 'PC1 versus PC2')
+1700243550958:tumour_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "tumour", "control"))
+1700243555114:res1 <- lfcShrink(dds=dds, res=tumour_v_ctrl, coef=4, type="apeglm")
+1700243568869:summary(res1)
+1700243568944:get_upregulated <- function(df){
+1700243568946:key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+1700243568948:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700243568950:return(results)
+1700243568952:}
+1700243568959:get_downregulated <- function(df){
+1700243568961:key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+1700243568963:results <- as.data.frame((df)[which(rownames(df) %in% key),])
+1700243568965:return(results)
+1700243568967:}
+1700243568973:annotate_de_genes <- function(df){
+1700243568977:df$hgnc_symbol <- rownames(df)
+1700243568979:mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+1700243568981:info <- getBM(attributes=c("hgnc_symbol",
+1700243568983:"ensembl_gene_id_version",
+1700243568985:"chromosome_name",
+1700243568988:"start_position",
+1700243568990:"end_position",
+1700243568992:"strand",
+1700243568994:"entrezgene_description"),
+1700243568997:filters = c("hgnc_symbol"),
+1700243568999:values = df$hgnc_symbol,
+1700243569001:mart = mart,
+1700243569003:useCache=FALSE)
+1700243569007:tmp <- merge(df, info, by="hgnc_symbol")
+1700243569009:tmp$strand <- gsub("-1", "-", tmp$strand)
+1700243569011:tmp$strand <- gsub("1", "+", tmp$strand)
+1700243569013:tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+1700243569016:tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+1700243569019:output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+1700243569021:tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+1700243569024:colnames(tmp) <- output_col
+1700243569028:if(min(tmp$Log2FC) > 0){
+1700243569030:tmp <- tmp[order(-tmp$Log2FC),]
+1700243569032:}else{
+1700243569034:tmp <- tmp[order(tmp$Log2FC),]
+1700243569036:}
+1700243569040:return(tmp)
+1700243569044:}
+1700243569050:de_up <- get_upregulated(as.data.frame(res1))
+1700243569070:de_down <- get_downregulated(as.data.frame(res1))
+1700243569089:upregulated_genes <- annotate_de_genes(de_up)
+1700243618814:downregulated_genes <- annotate_de_genes(de_down)
+1700243712369:#confirm these worked
+1700243712371:head(upregulated_genes)
+1700243712385:res1 <- na.omit(res1)
+1700243712400:min_width <- min(res1$log2FoldChange)
+1700243712405:max_width <- max(res1$log2FoldChange)
+1700243712409:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700243712419:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700243712427:up <- up[order(-up$log2FoldChange),]
+1700243712431:up_list <- head(rownames(up), n=10L)
+1700243712437:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700243712444:down <- down[order(down$log2FoldChange),]
+1700243712449:down_list <- head(rownames(down), n=10L)
+1700243712454:plot_top_20 <- c(up_list, down_list)
+1700243712459:EnhancedVolcano(res1,
+1700243712461:lab=rownames(res1),
+1700243712463:x="log2FoldChange",
+1700243712465:y="pvalue",
+1700243712468:selectLab=plot_top_20,
+1700243712470:drawConnectors=TRUE,
+1700243712472:legendPosition = "none",
+1700243712474:FCcutoff=1.0,
+1700243712476:pCutoff=0.05,
+1700243712478:title="Volcano Plot",
+1700243712480:subtitle="Tumour vs. Control",
+1700243712483:caption = paste0('Total Genes = ', nrow(res1)),
+1700243712485:xlim=c(min_width, max_width),
+1700243712487:ylim=c(0, max_height))
+1700243713920:res1 <- na.omit(tumour_v_ctrl)
+1700243713936:min_width <- min(res1$log2FoldChange)
+1700243713940:max_width <- max(res1$log2FoldChange)
+1700243713944:max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+1700243713954:up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+1700243713961:up <- up[order(-up$log2FoldChange),]
+1700243713966:up_list <- head(rownames(up), n=10L)
+1700243713971:down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+1700243713979:down <- down[order(down$log2FoldChange),]
+1700243713984:down_list <- head(rownames(down), n=10L)
+1700243713988:plot_top_20 <- c(up_list, down_list)
+1700243713992:EnhancedVolcano(res1,
+1700243713994:lab=rownames(res1),
+1700243713996:x="log2FoldChange",
+1700243713998:y="pvalue",
+1700243714000:selectLab=plot_top_20,
+1700243714002:drawConnectors=TRUE,
+1700243714005:FCcutoff=1.0,
+1700243714007:pCutoff=0.05,
+1700243714009:title="Volcano Plot",
+1700243714011:subtitle="Tumour vs. Control",
+1700243714013:legendLabSize=8,
+1700243714015:caption = paste0('Total Genes = ', nrow(res1)))
+1700243715426:res1 <- na.omit(res1)
+1700243715443:subset <- rld_counts[, 1:6]
+1700243715449:up <- rownames(de_up)
+1700243715453:down <- rownames(de_down)
+1700243715457:key <- c(up, down)
+1700243715461:subset <- subset[which(rownames(subset) %in% key),]
+1700243715468:mat <- as.matrix(scale(t(subset), center = T))
+1700243715477:ann <- data.frame(Condition = c(rep("Control", 3), rep("Tumour", 3)))
+1700243715481:rownames(ann) <- rownames(mat)
+1700243715485:col <- c("blue", "forestgreen")
+1700243715488:names(col) <- c("Control", "Tumour")
+1700243715492:ann_col <- list(Condition = col)
+1700243715498:pheatmap(t(mat),
+1700243715500:show_rownames = FALSE,
+1700243715502:annotation_col = ann,
+1700243715504:annotation_colors = ann_col,
+1700243715506:color = hcl.colors(100, "PRGn",rev=F))
+1700243716447:res <- as.data.frame(res1) # tumour vs control
+1700243716464:res$hgnc_symbol <- rownames(res)
+1700243716470:fgsea_rank <- res %>%
+1700243716472:dplyr::select(hgnc_symbol, log2FoldChange) %>%
+1700243716474:na.omit() %>%
+1700243716476:distinct() %>%
+1700243716478:group_by(hgnc_symbol) %>%
+1700243716481:summarize(stat=mean(log2FoldChange))
+1700243716828:fgsea_rank
+1700243716851:rank <- deframe(fgsea_rank)
+1700243716855:head(rank, 20)
+1700243716865:pathway <- gmtPathways("/home/rstudio/c6.all.v2023.2.Hs.symbols.gmt")
+1700243716896:head(pathway, 1)
+1700243716923:fgsea <- fgsea(pathways=pathway, stats=rank, nperm=1000)
+1700243717604:fgseaResTidy <- fgsea %>%
+1700243717606:as_tibble() %>%
+1700243717608:arrange(desc(NES))
+1700243717690:fgseaResTidy %>%
+1700243717692:dplyr::select(-leadingEdge, -ES, -nMoreExtreme) %>%
+1700243717694:arrange(padj) %>%
+1700243717696:DT::datatable()
+1700243717775:filtered_pathway <- subset(fgsea, NES > 1.2)
+1700243717788:filtered_pathway
+1700243717804:filt_up <- as.vector(filtered_pathway$pathway)
+1700243717809:for (i in filt_up){
+1700243717811:plt <- plotEnrichment(pathway = pathway[[i]],
+1700243717813:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700243717815:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700243717817:print(plt)
+1700243717819:}
+1700243719142:filtered_pathway <- subset(fgsea, NES < -1.3)
+1700243719154:filtered_pathway
+1700243719169:filt_down <- as.vector(filtered_pathway$pathway)
+1700243719177:for (i in filt_down){
+1700243719181:plt <- plotEnrichment(pathway = pathway[[i]],
+1700243719188:gseaParam = 1, ticksSize = 0.5, stats= rank) +
+1700243719190:labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+1700243719192:print(plt)
+1700243719194:}

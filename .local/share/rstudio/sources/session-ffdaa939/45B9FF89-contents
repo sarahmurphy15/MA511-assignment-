@@ -1,0 +1,513 @@
+---
+title: "MA5111_assignment_S.Murphy"
+output: html_document
+date: "2023-11-15"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+title: "MA5111 Assignment"
+author: "Sarah Murphy"
+date: "2023-11-15"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(dplyr)
+library(biomaRt)
+library(tximport)
+library(rhdf5)
+library(gplots)
+library(org.Hs.eg.db)
+library(DESeq2)
+library(DT)
+library(apeglm)
+library(RColorBrewer)
+library(IHW)
+library(PCAtools)
+library(pheatmap)
+library(clusterProfiler)
+library(EnhancedVolcano)
+library(ComplexHeatmap)
+library(circlize)
+library(fgsea)
+library(tidyverse)
+library(ggpubr)
+```
+
+# Introduction
+
+This R markdown document walks through an RNA-Seq differential expression analysis using DESeq2 for MA5111. Quality control plots, differential expression results, plots and pathway analysis are covered in the document.
+```{r}
+quant_dir <- "/home/rstudio/"
+list.files(quant_dir)
+```
+This R chunk first sets a variable named quant_dir to the directory path "/home/rstudio/". Then, it uses the list.files() function to list the files in the specified directory and prints the result. 
+
+## Reading Input Data
+```{r}
+samples <- read.csv(paste0(quant_dir, "/samples.csv"), header=T, row.names = "sample", stringsAsFactors = T)
+samples
+```
+In this R chunk, the read.csv() function is used to read a CSV file named "samples.csv" located in the directory specified by the 'quant_dir' variable. The resulting data is stored in a data frame called 'samples'. The row.names argument is set to "sample," and the stringsAsFactors argument is set to TRUE. Finally, the contents of the 'samples' data frame are printed.
+
+```{r}
+samples$replicate <- factor(samples$replicate)
+
+factor_cols <- sapply(samples, is.factor)
+factor_cols
+```
+In this R chunk, the column 'replicate' in the 'samples' data frame is explicitly converted to a factor using the factor() function. The sapply() function is then used to apply the is.factor() function to each column of the 'samples' data frame. This results in a logical vector (factor_cols) indicating whether each column is a factor or not. Finally, the logical vector indicating factor columns is printed. The output will be a logical vector with TRUE for factor columns and FALSE for non-factor columns in the 'samples' data frame.
+```{r}
+files <- file.path(quant_dir, rownames(samples), "abundance.tsv")
+names(files) <- paste0(rownames(samples))
+files
+```
+In this R chunk, the file.path() function is used to create a vector of file paths. The paths are constructed by combining 'quant_dir', the row names of the 'samples' data frame, and the string "abundance.tsv". This vector represents the paths to abundance.tsv files for each sample. The paste0() function is used to concatenate the row names of the 'samples' data frame and assign them as names to the elements of the 'files' vector.
+Finally, the 'files' vector containing the constructed file paths is printed. Each element of the vector corresponds to a sample, and the names of the elements are set to the sample names.
+
+```{r}
+mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+```
+In this R chunk, the useMart() function is used to access the Ensembl BioMart database for the human genome. The biomart argument is set to "ensembl" to specify the BioMart service provided by Ensembl. The dataset argument is set to "hsapiens_gene_ensembl" to select the dataset for the human genome in Ensembl. The resulting object 'mart' is assigned to store the connection to the BioMart database, and it can be used to retrieve information about genes, transcripts, and other genomic features for the human genome.
+
+```{R, message=F, warning=F}
+tx2gene <- getBM(attributes = c("ensembl_transcript_id_version", "hgnc_symbol"), mart = mart, useCache = FALSE)
+head(tx2gene)
+```
+In this R chunk, the getBM() function is used to retrieve information from the BioMart database. The attributes to be retrieved are Ensembl transcript IDs with version information and HGNC symbols. The attributes argument specifies the information to be retrieved: "ensembl_transcript_id_version" and "hgnc_symbol". The mart argument specifies the BioMart connection, which was previously established. The useCache argument is set to FALSE, indicating that caching should not be used. The resulting data frame, 'tx2gene', contains information about Ensembl transcript IDs and their corresponding HGNC symbols.
+Finally, the first few rows of the 'tx2gene' data frame are printed using the head() function.
+
+```{r}
+txi <- tximport(files, type = "kallisto", tx2gene = tx2gene)
+head(txi$abundance)
+```
+In this R chunk, the tximport() function is used to import transcript-level abundance estimates from kallisto output files. The function takes the file paths stored in the 'files' vector, the type of quantification method ("kallisto"), and the transcript-to-gene mapping ('tx2gene'). The resulting object 'txi' contains summarized information about the imported transcript-level abundance estimates. The head(txi$abundance) statement prints the first few rows of the 'abundance' component of the 'txi' object, which contains the transcript-level abundance data.
+
+
+
+
+
+
+
+```{r}
+dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )
+```
+In this R chunk, the DESeqDataSetFromTximport() function is used to create a DESeqDataSet object for further analysis using DESeq2. This function takes the transcript-level abundance data ('txi'), sample-related metadata ('samples'), and a design formula. The colData argument is set to 'samples', providing the sample-related metadata. The design argument is set to "~ replicate + condition", specifying the design formula for the differential expression analysis. This design formula includes the factors 'replicate' and 'condition' as covariates in the model. The resulting object 'dds' is a DESeqDataSet that can be used for differential expression analysis using DESeq2.
+
+```{r}
+dds$condition <- relevel(dds$condition, ref = "control")
+dds <- DESeq(dds)
+resultsNames(dds)
+```
+In this R chunk, The relevel() function is used to set the reference level of the 'condition' factor in the DESeqDataSet ('dds') to "control". This is often done to facilitate the interpretation of results. The 'dds' object is then updated with the re-leveled 'condition' factor. The DESeq() function is applied to perform differential expression analysis based on the DESeq2 package. This function estimates size factors, dispersions, and performs negative binomial generalized linear modeling. The resultsNames(dds) function is used to obtain the names of the results tables generated by the DESeq analysis. These tables typically include information about log2 fold changes, p-values, and adjusted p-values for each gene.
+```{r}
+dds <- DESeq(dds)
+resultsNames(dds)
+```
+In this R chunk: The DESeq() function is applied to the DESeqDataSet ('dds') again. It seems to be an optional or redundant step, as it is repeated from the previous chunk.
+The resultsNames(dds) function is then used to obtain the names of the results tables generated by the DESeq analysis. These tables typically include information about log2 fold changes, p-values, and adjusted p-values for each gene.
+
+
+
+
+
+
+```{r}
+counts <- counts(dds, normalized=TRUE)
+```
+```{r}
+log2_counts <- assay(normTransform(dds))
+rld_counts <- assay(rlog(dds))
+
+library(vsn)
+library(hexbin)
+
+log2_plt <- meanSdPlot(log2_counts, ranks=FALSE, plot=FALSE)
+log2_plt$gg + ggtitle("Log2 + PC Transformation") + xlim(0,20)
+```
+In the first R chunk, The counts() function is used to extract normalized counts from the DESeqDataSet ('dds'). The argument normalized=TRUE indicates that the counts should be normalized. Normalized counts are often used in downstream analysis, such as visualization and clustering, as they account for differences in sequencing depth and library size across samples.
+
+In the second R code chunk, The normTransform() function is applied to the DESeqDataSet ('dds') to obtain normalized counts, and then the assay() function is used to extract these normalized counts. The resulting normalized counts are stored in the 'log2_counts' variable. The rlog() function is applied to the DESeqDataSet ('dds') to perform a regularized log transformation, and the assay() function is used to extract the transformed counts. The resulting transformed counts are stored in the 'rld_counts' variable. The meanSdPlot() function from the 'vsn' package is used to generate a mean-sd plot for the log2-transformed counts. However, the plot is not displayed immediately; instead, it is stored in the 'log2_plt' variable. The final line displays the mean-sd plot with a title ("Log2 + PC Transformation") and sets a custom x-axis limit (xlim(0, 20)). Note that the actual display of the plot might depend on additional code that is not provided here.
+
+Log2-transformed gene counts are represented by the log2 transformation plot. The data points represent the mean gene expression for each gene, which is displayed on the horizontal X-axis. In the meantime, the standard deviation of the levels of gene expression is shown on the vertical Y-axis.
+
+Genes located in the vicinity of the lower-left quadrant of the X-axis have modest levels of expression and little fluctuation in their mean expression values. Higher expression levels are seen in the genes that are closer to the lower-right section of the X-axis. On the other hand, genes closer to the top of the plot have higher variability, which is indicated by their higher standard deviation values.
+
+The relationship between the dataset's mean number of RNA reads and the standard deviation of gene read counts is plotted. Comparing the more common genes with a higher average count to the more uncommon, or "once-off," genes in the dataset, this visual representation shows that the latter are more prevalent.
+
+```{r}
+rld_plt <- meanSdPlot(rld_counts, ranks=FALSE, plot=FALSE)
+rld_plt$gg + ggtitle("Rlog Transformation") + xlim(0,20)
+```
+In this R chunk, The meanSdPlot() function from the 'vsn' package is applied to generate a mean-sd plot for the regularized log-transformed counts ('rld_counts'). The ranks=FALSE argument indicates that ranks should not be used for plotting. The resulting plot is stored in the 'rld_plt' variable. The final line displays the mean-sd plot for rlog-transformed counts with a title ("Rlog Transformation") and sets a custom x-axis limit (xlim(0, 20)). Note that the actual display of the plot might depend on additional code that is not provided here.
+
+The Y-axis in the rlog-transformed visual shows the standard deviation (SD) of each gene's expression, while the X-axis shows the mean expression level for each gene. The rlog plot, in contrast to the log2-transformed data, shows a drop in the number of genes in the lower-left region of the X-axis, indicating that a greater proportion of genes are highly expressed and fewer genes exhibit low expression levels. The genes' mean and standard deviation values have both significantly increased, indicating that the levels of gene expression have been standardised in this analysis and are now appropriate for more research. The mean line's increasing trend suggests that genes with high expression show higher variation and standard deviation. The plot also identifies 8,103 genes.The same information is presented in this presentation, but because the data has been changed to fit a normalised model, accuracy has increased. As a result, it highlights genes that have greater read counts while reducing the impact of rare counts. 
+
+```{r}
+write.table(counts, "normalised_counts.txt", sep="\t", quote = F)
+write.table(log2_counts, "log2_counts.txt", sep="\t", quote = F)
+```
+In this R code chunk, The write.table() function is used to write the normalized counts ('counts') to a tab-separated text file named "normalised_counts.txt". The arguments include the file path, separator (sep="\t" for tab-separated), and quote=FALSE to avoid quoting. Similarly, the write.table() function is used to write the log2-transformed counts ('log2_counts') to a tab-separated text file named "log2_counts.txt" with the same specifications.
+
+```{r}
+sampleDists <- dist(t(rld_counts))
+
+sampleDistMatrix <- as.matrix(sampleDists)
+
+colnames(sampleDistMatrix) <- NULL
+
+ann <- data.frame(condition = samples$condition)
+
+col <- c("blue", "red1")
+names(col) <- c("tumour", "control")
+ann_col <- list(Condition = col)
+
+## match annotation rownames to distance mat
+rownames(ann) <- rownames(sampleDistMatrix)
+
+pheatmap(mat=sampleDistMatrix,
+         clustering_distance_rows=sampleDists,
+         clustering_distance_cols=sampleDists,
+         annotation_col = ann,
+         annotation_colors = ann_col,
+         col=hcl.colors(100,"GnBu",rev=T))
+```
+In this R chunk, pairwise sample distances are calculated based on the regularized log-transformed counts ('rld_counts') using the dist() function. The distance matrix is converted to a matrix format and column names are set to NULL. An annotation data frame ('ann') is created using the 'condition' information from the 'samples' data frame. Colors are defined for the 'condition' annotation, and an annotation list ('ann_col') is created. Row names of the annotation data frame are matched to the row names of the distance matrix. The pheatmap() function is used to generate a heatmap. It takes the distance matrix, clustering information for rows and columns, annotation data, annotation colors, and a color palette for the heatmap. The colors for the heatmap are chosen from the "GnBu" palette with reversed colors (rev = TRUE).
+
+The cells in the heatmap are colour coded. Genes are shown as rows, and samples are shown as columns. The level of gene expression in the relevant sample is reflected in the colour intensity at each junction. On the other hand, genes expressed in healthy controls are inhibited in tumour samples, and genes repressed in healthy controls exhibit increased expression in tumour cells. Some genes express themselves too much in different tumour copies. Among all samples, Tumour3 has the largest proportion of overexpression, whereas Tumour2 completely lacks expression of the same set of genes.
+
+
+
+
+```{r}
+p <- pca(rld_counts, metadata = samples)
+
+biplot(p,
+       colby = 'condition',
+       colkey = c('tumour'='royalblue', 'control'='red1'),
+       hline = 0,
+       vline = 0,
+       legendPosition = 'right',
+       legendLabSize = 12,
+       legendIconSize = 8.0,
+       title = 'PCA bi-plot',
+       subtitle = 'PC1 versus PC2')
+```
+In this R code chunk, a Principal Component Analysis (PCA) is performed on the regularized log-transformed counts (rld_counts) with sample metadata (samples). The resulting PCA object is used to create a biplot of the first two principal components. The biplot is customized with colors based on the 'Condition' variable, horizontal and vertical lines at zero, and a legend with specified colors and positioning. The title and subtitle are also added to the biplot for better interpretation. The biplot visually represents the relationships between samples in a reduced-dimensional space defined by the top principal components.
+
+The PCA graphic emphasises the significance of the first two principal components, PC1 and PC2, which together account for 44.11% and 28.78%, respectively, of the variation in the data. With each point denoting a sample, this graphic illustrates sample associations based on gene expression profiles.
+
+Plotting "Control" samples 1, 2, and 3 shows that they have low dissimilarity and similar gene expression patterns, forming a tight cluster. As this is going on, samples 1, 2, and 3 of "Tumour" likewise cluster but also exhibit considerable separation, which is indicative of minor variations in their gene expression profiles.
+
+The principal source of variation that differentiates the "Control" and "Tumour" samples is indicated by their separation along the PC1 axis. The genes responsible for this variance might be important in figuring out the biological differences between the two populations.
+
+The increased heterogeneity seen in the tumour samples is consistent with the hypothesis that cancer cells harbour spontaneous mutations. Moreover, the plot's lack of data overlap indicates that this dataset's differential expression analysis is probably going to function really well.
+
+```{r}
+tumour_v_ctrl <- results(dds, filterFun=ihw, alpha=0.05, c("condition", "tumour", "control"))
+res1 <- lfcShrink(dds=dds, res=tumour_v_ctrl, coef=4, type="apeglm")
+summary(res1)
+```
+The code specifies an alpha of 0.05, which implies that for any given result to be deemed statistically significant for additional analysis, the p-value must fall below this threshold. Because the corrected p-value is less than 0.05, the findings are statistically significant.
+
+The differences in expression between the tumour and control samples are statistically significant. A log fold change of more than zero for 269 genes usually indicates that these genes are upregulated. A log fold change of less than zero indicates that 199 genes are generally downregulated. An apeglm method has been used to shrink the log-fold alterations. A strong set of differentially expressed genes is produced when apexlm reduces low confidence (high inter-sample variation) differentially expressed genes towards 0. reduces variety that could affect the outcome.
+
+
+
+```{r}
+get_upregulated <- function(df){
+    key <- intersect(rownames(df)[which(df$log2FoldChange>=1)], rownames(df)[which(df$pvalue<=0.05)])
+  results <- as.data.frame((df)[which(rownames(df) %in% key),])
+    return(results)
+}
+```
+In this R code a function named get_upregulated is defined, which takes a data frame (df) as an argument. The function identifies genes that are upregulated based on a log2 fold change greater than or equal to 1 and a p-value less than or equal to 0.05. The intersect() function is used to find the common genes meeting both criteria. The relevant rows corresponding to the upregulated genes are extracted from the original data frame using indexing. The subset of results is returned as a data frame.
+
+```{r}
+get_downregulated <- function(df){
+    key <- intersect(rownames(df)[which(df$log2FoldChange<=-1)], rownames(df)[which(df$pvalue<=0.05)])
+    results <- as.data.frame((df)[which(rownames(df) %in% key),])
+    return(results)
+}
+```
+A function named get_downregulated is defined, which takes a data frame (df) as an argument. The function identifies genes that are downregulated based on a log2 fold change less than or equal to -1 and a p-value less than or equal to 0.05. The intersect() function is used to find the common genes meeting both criteria.
+The relevant rows corresponding to the downregulated genes are extracted from the original data frame using indexing. The subset of results is returned as a data frame.
+
+```{r}
+annotate_de_genes <- function(df){
+
+    df$hgnc_symbol <- rownames(df)
+    mart <- useMart(biomart = "ensembl", dataset = "hsapiens_gene_ensembl")
+    info <- getBM(attributes=c("hgnc_symbol",
+                               "ensembl_gene_id_version",
+                               "chromosome_name",
+                               "start_position",
+                               "end_position",
+                               "strand",
+                               "entrezgene_description"),
+                  filters = c("hgnc_symbol"),
+                  values = df$hgnc_symbol,
+                  mart = mart,
+                  useCache=FALSE)
+
+    tmp <- merge(df, info, by="hgnc_symbol")
+    tmp$strand <- gsub("-1", "-", tmp$strand)
+    tmp$strand <- gsub("1", "+", tmp$strand)
+    tmp$hgnc_symbol <- make.names(tmp$hgnc_symbol, unique = T)
+    tmp <- tmp[!grepl("CHR", tmp$chromosome_name),]
+
+    output_col <- c("Gene", "Ensembl ID", "Chromosome", "Start", "Stop", "Strand", "Description", "Log2FC", "P-value", "Adj P-value")
+    tmp <- subset(tmp, select=c(hgnc_symbol, ensembl_gene_id_version, chromosome_name, start_position, end_position, strand, entrezgene_description, log2FoldChange, pvalue, padj))
+    colnames(tmp) <- output_col
+
+    if(min(tmp$Log2FC) > 0){
+        tmp <- tmp[order(-tmp$Log2FC),]
+    }else{
+        tmp <- tmp[order(tmp$Log2FC),]
+    }
+
+    return(tmp)
+
+}
+```
+This R code defines a function named annotate_de_genes. This function, annotates differentially expressed genes by merging the input data frame with additional gene information obtained from the Ensembl BioMart database. The output data frame includes information such as Ensembl ID, chromosome, start and stop positions, strand, gene description, log2 fold change, p-value, and adjusted p-value. The genes are ordered based on the log2 fold change.
+
+```{r}
+de_up <- get_upregulated(as.data.frame(res1))
+de_down <- get_downregulated(as.data.frame(res1))
+upregulated_genes <- annotate_de_genes(de_up)
+downregulated_genes <- annotate_de_genes(de_down)
+
+#confirm these worked
+head(upregulated_genes)
+```
+In this R chunk, The get_upregulated() function is applied to the DESeq2 results (res1) to extract upregulated genes. The result is then converted to a data frame.
+The annotate_de_genes() function is used to annotate the upregulated genes with additional information, and the result is stored in the 'upregulated_genes' variable.
+The get_downregulated() function is applied to the DESeq2 results to extract downregulated genes, and the result is converted to a data frame. The annotate_de_genes() function is then used to annotate the downregulated genes with additional information, and the result is stored in the 'downregulated_genes' variable. Finally, the first few rows of the 'upregulated_genes' data frame are displayed using the head() function.
+
+
+```{r}
+res1 <- na.omit(res1)
+
+min_width <- min(res1$log2FoldChange)
+max_width <- max(res1$log2FoldChange)
+max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+
+up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+up <- up[order(-up$log2FoldChange),]
+up_list <- head(rownames(up), n=10L)
+
+down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+down <- down[order(down$log2FoldChange),]
+down_list <- head(rownames(down), n=10L)
+
+plot_top_20 <- c(up_list, down_list)
+
+EnhancedVolcano(res1,
+                lab=rownames(res1),
+                x="log2FoldChange",
+                y="pvalue",
+                selectLab=plot_top_20,
+                drawConnectors=TRUE,
+                legendPosition = "none",
+                FCcutoff=1.0,
+                pCutoff=0.05,
+                title="Volcano Plot",
+                subtitle="Tumour vs. Control",
+                caption = paste0('Total Genes = ', nrow(res1)),
+                xlim=c(min_width, max_width),
+                ylim=c(0, max_height))
+```
+
+In this code, rows with missing values in the DESeq2 results (res1) are removed using na.omit().Parameters for the volcano plot, such as the minimum and maximum values for log2 fold change and the maximum value for the negative log10 p-value, are calculated.
+Upregulated and downregulated genes meeting significance criteria are extracted and sorted based on log2 fold change. Lists of the top 10 upregulated and top 10 downregulated genes are combined for plotting. The EnhancedVolcano() function from the 'EnhancedVolcano' package is used to generate a volcano plot. The plot is customized to highlight the selected top 20 genes and includes a title, subtitle, and caption. The color-coding and labeling of significant genes are also adjusted based on the specified criteria.
+
+One kind of scatterplot that displays statistical significance (P value) vs change magnitude (fold change) is called a volcano plot. It facilitates the rapid visual detection of statistically important genes with large fold changes. These genes might be the most important ones in terms of biology. The most statistically significant genes seem to be upregulated.
+
+
+Given the conditions set for this volcano plot, it is evident from the map that there are substantially more upregulated genes than downregulated genes. The dataset's high frequency of elevated genes may point to a particular reaction to the experimental setup. This implies that a predominate increase in gene expression is linked to the experimental conditions.Additionally, the elevated genes exhibit a more pronounced alteration.This means they have a higher expression in the tumour groups than in the control group.
+
+
+
+```{r}
+res1 <- na.omit(tumour_v_ctrl)
+
+min_width <- min(res1$log2FoldChange)
+max_width <- max(res1$log2FoldChange)
+max_height <- -log10(min(res1[res1$pvalue>0, 5]))
+
+up <- subset(res1, res1$log2FoldChange > 1 & res1$pvalue <= 0.05)
+up <- up[order(-up$log2FoldChange),]
+up_list <- head(rownames(up), n=10L)
+
+down <- subset(res1, res1$log2FoldChange < -1 & res1$pvalue <= 0.05)
+down <- down[order(down$log2FoldChange),]
+down_list <- head(rownames(down), n=10L)
+
+plot_top_20 <- c(up_list, down_list)
+EnhancedVolcano(res1,
+                      lab=rownames(res1),
+                    x="log2FoldChange",
+                    y="pvalue",
+                    selectLab=plot_top_20,
+                    drawConnectors=TRUE,
+                    FCcutoff=1.0,
+                    pCutoff=0.05,
+                    title="Volcano Plot",
+                    subtitle="Tumour vs. Control",
+                    legendLabSize=8,
+                    caption = paste0('Total Genes = ', nrow(res1)))
+```
+The importance of the apeglm function is illustrated by this volcanic plot. Genes that have values greater than + or - 10 are regarded as outliers and ought not to be taken into account throughout the analysis.
+```{r}
+res1 <- na.omit(res1)
+```
+In this R code, the na.omit() function is used to remove rows with missing values from the data frame res1. This function is commonly employed in data cleaning to eliminate observations with incomplete or NA (Not Available) values. By applying na.omit(res1), the rows in the data frame where any values are missing are excluded, resulting in a cleaned version of the data frame without NA values.
+
+```{r}
+subset <- rld_counts[, 1:6]
+
+up <- rownames(de_up)
+down <- rownames(de_down)
+
+key <- c(up, down)
+subset <- subset[which(rownames(subset) %in% key),]
+
+mat <- as.matrix(scale(t(subset), center = T))
+
+ann <- data.frame(Condition = c(rep("Control", 3), rep("Tumour", 3)))
+rownames(ann) <- rownames(mat)
+col <- c("blue", "forestgreen")
+names(col) <- c("Control", "Tumour")
+ann_col <- list(Condition = col)
+
+pheatmap(t(mat), 
+         show_rownames = FALSE,
+         annotation_col = ann,
+         annotation_colors = ann_col,
+         color = hcl.colors(100, "PRGn",rev=F))
+```
+
+In this R code, a subset of columns (1 to 6) from the regularized log-transformed counts (rld_counts) is extracted and stored in the subset variable. The upregulated and downregulated gene lists (up and down, respectively) are defined based on specific criteria from previous analysis. The key is created by combining the upregulated and downregulated gene lists. The subset data frame is then filtered to retain only the rows corresponding to the genes in the key. Next, the data is transformed into a matrix (mat) by scaling and centering the transpose of the subset. An annotation data frame (ann) is created to specify the condition for each sample, and the row names of this annotation data frame are matched to the row names of the matrix. The pheatmap() function is used to generate a heatmap of the scaled and centered subset. The heatmap includes options for displaying row names, annotating samples with colors based on the defined conditions, and choosing a color palette ("PRGn" with reversed colors) for better visualization.
+
+The associations between the samples are represented by dendrograms on the top and left sides of the heatmap. The way that samples are grouped according to their gene expression profiles is shown by these hierarchical clustering structures. Annotations for samples are incorporated into the heatmap and help with condition identification by classifying samples into "tumour" (shown in red) and "control" (shown in forest green) conditions. Darker colours on the heatmap indicate a larger degree of dissimilarity, while lighter colours indicate a lower degree of dissimilarity. The dissimilarity values, which are standardised within this range, are represented by a vertical colour bar with values ranging from 0 to 20. The "tumour" samples stand out due to their intensely coloured hue, which suggests a greater degree of dissimilarity than the "control" samples. The dark colours corresponding to the "tumour" samples show different gene expression profiles, indicating a significant level of variation between them. The larger the dissimilarity with respect to other samples, as indicated by a darker colour in this heatmap. Similarity across sample sets is also seen in the two phylogenetic tree architectures. A set is increasingly alike the farther it branches from another. Here, "tumour1" is significantly different from "tumour2" and "tumour3," suggesting a closer relationship to the control group.
+
+"Tumour3" shows the greatest difference from "control1" on the heatmap when compared to the other control samples. Furthermore, "tumour3" exhibits a comparable degree of dissimilarity with "tumour1."
+
+
+```{r}
+res <- as.data.frame(res1) # tumour vs control
+res$hgnc_symbol <- rownames(res)
+
+fgsea_rank <- res %>%
+              dplyr::select(hgnc_symbol, log2FoldChange) %>%
+              na.omit() %>%
+              distinct() %>%
+              group_by(hgnc_symbol) %>%
+              summarize(stat=mean(log2FoldChange))
+
+fgsea_rank
+```
+In this R code, the DESeq2 results (res1) are converted to a data frame (res). The hgnc_symbol column is added to this data frame, using gene symbols as row names. The subsequent steps involve preparing a ranked gene list for Gene Set Enrichment Analysis (GSEA) using the fgsea package. The dplyr functions are utilized to select relevant columns (hgnc_symbol and log2FoldChange), remove rows with missing values (na.omit()), extract distinct values, and calculate the mean log2 fold change for each unique gene symbol. The result is stored in the fgsea_rank data frame, which represents a ranked gene list suitable for GSEA analysis.
+```{r}
+rank <- deframe(fgsea_rank)
+head(rank, 20)
+```
+
+In this R code, the deframe() function is used to convert the fgsea_rank data frame into a named vector, and the resulting object is assigned to the variable rank. The head(rank, 20) command is then employed to display the first 20 entries of the ranked gene list, providing an overview of the gene symbols and their corresponding mean log2 fold change values. This transformation of the data frame into a named vector is often done to prepare the input for functions that require a vector, such as those used in gene set enrichment analysis (GSEA).
+
+
+```{r}
+pathway <- gmtPathways("/home/rstudio/c6.all.v2023.2.Hs.symbols.gmt")
+head(pathway, 1)
+```
+
+In this R code, the gmtPathways() function from the fgsea package is used to load a Gene Matrix Transposed (GMT) file containing gene sets for pathway analysis. The specified file path is "/home/rstudio/c6.all.v2023.2.Hs.symbols.gmt". The head(pathway, 1) command is then employed to display the first row of the loaded pathway data, providing information about the contents of the pathway file, such as the name and gene symbols of the first pathway. This step is part of the preparation for gene set enrichment analysis (GSEA), where gene sets are compared against a ranked list of genes to identify enriched pathways or biological processes.
+
+
+```{r}
+fgsea <- fgsea(pathways=pathway, stats=rank, nperm=1000)
+
+fgseaResTidy <- fgsea %>%
+  as_tibble() %>%
+  arrange(desc(NES))
+
+fgseaResTidy %>%
+  dplyr::select(-leadingEdge, -ES, -nMoreExtreme) %>%
+  arrange(padj) %>%
+  DT::datatable()
+```
+
+In this R code, the fgsea() function from the fgsea package is utilized to perform Gene Set Enrichment Analysis (GSEA). The function takes the loaded pathway data (pathway), the ranked gene list (rank), and the number of permutations (nperm) as input parameters. The result is stored in the fgsea variable. Subsequently, the fgseaResTidy variable is created by converting the result to a tibble using as_tibble(), arranging the data by descending Normalized Enrichment Score (NES) using arrange(desc(NES)).
+Finally, a subset of the result is extracted using the select() function to exclude certain columns (leadingEdge, ES, nMoreExtreme), and the data is further arranged by adjusted p-value (padj). The final result is displayed as a data table using the DT::data function. This series of operations aims to organize and present the GSEA results, focusing on pathways with significant enrichment.
+
+Genetic pathways that are enriched in tumour and control samples are revealed by enrichment plots. Tumour samples exhibit enrichment when their Normalised Enrichment Score (NES) values are positive, whereas control samples exhibit enrichment when their NES values are negative. Using a ranking mechanism, the given code performs Gene Set Enrichment Analysis (GSEA) on particular pathways, evaluating enrichment scores with 1000 permutations (nperm=1000).
+
+The level of overrepresentation of a gene set at the top or bottom of a ranked gene list is indicated by the Enrichment Score (ES). As the analysis moves down the ranked list, the running ES is shown in the top area of the graphic. The gene set's ES is indicated by the peak score that is farthest from 0.0. The most notable gene sets usually have a clear peak at the start or finish of the ranking list. Depending on the direction of the ES, the members that provide the largest contributions to the leading edge subset appear either before or after the peak score.
+
+To compare analytical findings across gene sets, NES is used. Each plot's peaks represent the gene set's rank in the ranked list; positive scores denote an association with tumour samples, while negative scores indicate an association with control samples.
+
+Pathway names or identifiers, p-values, corrected p-values, NES scores, and pathway sizes are all included in the condensed output. Based on the differential expression analysis, these results offer insights into enriched pathways, with higher NES values and lower p-values indicating stronger evidence of pathway enrichment.
+```{r}
+filtered_pathway <- subset(fgsea, NES > 1.2)
+filtered_pathway
+```
+
+The amount that the genes in the set are overrepresented at the top or bottom of a ranked list of genes is reflected in the enrichment score. The positive number (0.765535) in this instance denotes an enrichment in the direction of the top of the sorted list. At the top of the ranking list is this gene.
+
+The raw enrichment score is adjusted for variations in the size of the gene set and in correlations with the expression data by the normalised enrichment score. The NES in this instance is 1.654109, indicating a significant enrichment of the gene set.
+
+The enrichment score's statistical significance is indicated by the p-value. A small p-value (0.001792115) suggests that there is little chance that the observed enrichment was caused by random chance
+
+Multiple testing is corrected for by the modified p-value. The value in this instance is 0.3160535. A more dependable outcome is indicated by a lower FDR.
+
+```{r}
+filt_up <- as.vector(filtered_pathway$pathway)
+
+for (i in filt_up){
+    plt <- plotEnrichment(pathway = pathway[[i]],
+    gseaParam = 1, ticksSize = 0.5, stats= rank) +
+    labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+    print(plt)
+}
+```
+
+In this R code chunk, a loop is used to iterate over the pathways (i) in the filtered_pathway object. For each pathway, the plotEnrichment() function is applied, which generates a plot depicting the enrichment of genes in the specified pathway. The function takes parameters such as the pathway itself (pathway[[i]]), GSEA parameter (gseaParam), tick size (ticksSize), and the ranked gene list (rank). The resulting plot is then customized with a title, and the print(plt) function is used to display each plot iteratively. This loop allows for the visualization of enrichment plots for each pathway that meets the filtering criteria.
+
+The rank in the fgsea gene list is indicated by the X-axis for each figure, while the gene set's enrichment score is indicated by the Y-axis. The ES is shown by the green line. The subsets of the gene set list where this specific gene set is expressed and contributes to its positive ES are shown by the black bars.
+
+HINATA_NFKB_IMMU_INF: Around rank 3000 on the x-axis, the red dotted line is reached at an enrichment score of 0.76 as the green line rises at a steep angle. From there, it drops until it reaches the red line at about rank 21500 and enrichment score 0. pointing to a noteworthy pattern of enrichment in this pathway. has a NES score, meaning it is highly related in cancer but doesn't appear to be very significant with an associated adjusted pvalue of 0.316.
+
+```{r}
+filtered_pathway <- subset(fgsea, NES < -1.3)
+filtered_pathway
+```
+
+In this R code, the subset() function is again used to filter the results of the Gene Set Enrichment Analysis (GSEA) stored in the fgsea object. This time, the filtering criterion is that the Normalized Enrichment Score (NES) should be less than -1.3. The subset of pathways meeting this criterion is stored in the filtered_pathway variable, and the results are displayed. This step is similar to the previous one but focuses on pathways that are negatively enriched in the analyzed data.
+
+The amount that the genes in the set are overrepresented at the top or bottom of a ranked list of genes is reflected in the enrichment score. The negative value (-1.41086) in this instance denotes an enrichment in the direction of the bottom of the sorted list.
+
+The raw enrichment score is adjusted for variations in the size of the gene set and in correlations with the expression data by the normalised enrichment score. Although it is pointing in the opposite direction from the raw ES, the NES in this instance is -0.3957005, indicating a notable enrichment of the gene set.
+
+The enrichment score's statistical significance is indicated by the p-value. A low p-value (0.003344482) suggests that it is improbable that the enrichment observed happened by accident.
+
+Multiple testing is corrected for by the modified p-value. The value in this instance is 0.3160535. A more dependable outcome is indicated by a lower FDR.
+
+```{r}
+filt_down <- as.vector(filtered_pathway$pathway)
+
+for (i in filt_down){
+    plt <- plotEnrichment(pathway = pathway[[i]],
+    gseaParam = 1, ticksSize = 0.5, stats= rank) +
+    labs(title=i) + theme(plot.title = element_text(hjust = 0.5, face="bold"))
+    print(plt)
+}
+```
+
+In this R code, a loop is used to iterate over the pathways (i) in the filtered_pathway object, which contains pathways with Normalized Enrichment Scores (NES) less than -1.3. For each pathway, the plotEnrichment() function is applied, generating a plot illustrating the enrichment of genes in the specified pathway. The function takes parameters such as the pathway itself (pathway[[i]]), GSEA parameter (gseaParam), tick size (ticksSize), and the ranked gene list (rank). The resulting plot is then customized with a title, and the print(plt) function is used to display each plot iteratively. This loop enables the visualization of enrichment plots for each negatively enriched pathway meeting the filtering criteria.

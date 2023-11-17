@@ -1,0 +1,13 @@
+{
+	"n_targets": 202897,
+	"n_bootstraps": 0,
+	"n_processed": 25000000,
+	"n_pseudoaligned": 22486182,
+	"n_unique": 4855206,
+	"p_pseudoaligned": 89.9,
+	"p_unique": 19.4,
+	"kallisto_version": "0.50.0",
+	"index_version": 12,
+	"start_time": "Wed Nov 15 09:26:23 2023",
+	"call": "kallisto quant -i hg38.idx -o control3 --single -t 4 -l 200 -s 20 control_3.fastq.gz"
+}

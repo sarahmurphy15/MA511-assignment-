@@ -1,0 +1,3 @@
+"0","dds <- DESeqDataSetFromTximport(txi, colData = samples, design = ~ replicate + condition )"
+"2","using counts and average transcript lengths from tximport
+"
